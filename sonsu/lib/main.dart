@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
+import 'package:sonsu/pages/helpee/helpee_home_page.dart';
 import 'package:sonsu/pages/home_page.dart';
 import 'package:sonsu/pages/splash_page.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Son-Su',
-          initialRoute: '/',
+          initialRoute: '/helpee-home',
           getPages: [
             GetPage(name: '/', page: () => const SplashtoHome()),
             GetPage(
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
                 page: () => const HomePage(),
                 transition: Transition.fadeIn),
             GetPage(name: '/splash', page: () => const SplashPage()),
+            GetPage(name: '/helpee-home', page: () => const HelpeeHomePage()),
             // GetPage(name: '/SignIn', page: () => const SignInPage()),
           ],
         );
