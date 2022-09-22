@@ -19,7 +19,17 @@ class _HelperMainState extends State<HelperMain> {
     'assets/images/cardnews04.png',
     'assets/images/cardnews05.png',
   ];
+
   final GlobalKey _chartKey = new GlobalKey();
+
+  final sosoList = [
+    {
+      "title": "캐리어 같이 들어주실분,,,",
+      "time": "1분전",
+    },
+    {"title": "잃어버린 우리집 냥이 찾아요ㅠ", "time": "3분전"},
+    {"title": "감자털이 도와주세요", "time": "10분전"}
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -116,6 +126,39 @@ class _HelperMainState extends State<HelperMain> {
               border: Border.all(
                 color: Color.fromARGB(10, 0, 0, 0),
                 width: 2,
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '소소한 도움',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  ListView.builder(
+                      itemCount: 3,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              sosoList[index]["title"]!,
+                              style: TextStyle(fontSize: 9),
+                            ),
+                            Text(
+                              sosoList[index]["time"]!,
+                              style: TextStyle(
+                                  fontSize: 8,
+                                  color: Color.fromARGB(50, 0, 0, 0)),
+                            )
+                          ],
+                        );
+                      }),
+                ],
               ),
             ),
           ),

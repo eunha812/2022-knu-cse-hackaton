@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
 import 'package:sonsu/pages/helper/helper_main/alarm_list.dart';
+import 'package:sonsu/pages/helpee/helpee_home_page.dart';
+import 'package:sonsu/pages/helpee/match_complete_page.dart';
 import 'package:sonsu/pages/home_page.dart';
 import 'package:sonsu/pages/splash_page.dart';
 
@@ -30,6 +32,9 @@ class MyApp extends StatelessWidget {
                 transition: Transition.fadeIn),
             GetPage(name: '/splash', page: () => const SplashPage()),
             GetPage(name: '/alarm', page: () => AlarmList()),
+            GetPage(name: '/helpee-home', page: () => const HelpeeHomePage()),
+            GetPage(
+                name: '/match-complete', page: () => const MatchCompletePage()),
             // GetPage(name: '/SignIn', page: () => const SignInPage()),
           ],
         );
