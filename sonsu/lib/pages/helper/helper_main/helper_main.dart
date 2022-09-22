@@ -28,7 +28,7 @@ class _HelperMainState extends State<HelperMain> {
       "time": "1분전",
     },
     {"title": "잃어버린 우리집 냥이 찾아요ㅠ", "time": "3분전"},
-    {"title": "감자털이 도와주세요", "time": "10분전"}
+    {"title": "감자털이 도와주세요", "time": "10분전"},
   ];
 
   @override
@@ -132,32 +132,38 @@ class _HelperMainState extends State<HelperMain> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
+                    //sosoList[2]["title"]!,
                     '소소한 도움',
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
-                  ListView.builder(
-                      itemCount: 3,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              sosoList[index]["title"]!,
-                              style: TextStyle(fontSize: 9),
-                            ),
-                            Text(
-                              sosoList[index]["time"]!,
-                              style: TextStyle(
-                                  fontSize: 8,
-                                  color: Color.fromARGB(50, 0, 0, 0)),
-                            )
-                          ],
-                        );
-                      }),
+                  SizedBox(
+                    height: 40,
+                    child: ListView.builder(
+                        //shrinkWrap: true,
+                        padding: EdgeInsets.all(0),
+                        itemCount: 3,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                sosoList[index]["title"]!,
+                                style: TextStyle(fontSize: 9),
+                              ),
+                              Text(
+                                sosoList[index]["time"]!,
+                                style: TextStyle(
+                                    fontSize: 8,
+                                    color: Color.fromARGB(50, 0, 0, 0)),
+                              )
+                            ],
+                          );
+                        }),
+                  ),
                 ],
               ),
             ),
