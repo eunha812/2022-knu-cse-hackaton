@@ -37,6 +37,9 @@ class MyApp extends StatelessWidget {
                 name: '/match-complete', page: () => const MatchCompletePage()),
             // GetPage(name: '/SignIn', page: () => const SignInPage()),
           ],
+          theme: ThemeData(
+            fontFamily: 'Noto_Sans_KR',
+          ),
         );
       },
     );
