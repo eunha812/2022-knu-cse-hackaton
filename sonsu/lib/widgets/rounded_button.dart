@@ -6,8 +6,7 @@ class RoundedButton extends StatelessWidget {
   final Function()? onPressed;
   final Widget? icon;
   final String? label;
-  final double? width;
-  final double? height;
+  final EdgeInsets? padding;
   final double? radius;
   final Color? textColor;
   final Color? btnColor;
@@ -17,8 +16,7 @@ class RoundedButton extends StatelessWidget {
     required this.onPressed,
     this.icon,
     this.label,
-    this.width,
-    this.height,
+    this.padding,
     this.radius,
     this.textColor,
     this.btnColor,
@@ -28,24 +26,22 @@ class RoundedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      height: height,
-      child: ElevatedButton.icon(
-        onPressed: onPressed,
-        icon: icon ?? Container(),
-        label: Text(
-          label ?? '',
-          style: TextStyle(
-            color: textColor ?? Colors.white,
-            fontSize: fontSize ?? 11.sp,
-          ),
+    return ElevatedButton.icon(
+      onPressed: onPressed,
+      icon: icon ?? Container(),
+      label: Text(
+        label ?? '',
+        style: TextStyle(
+          color: textColor ?? Colors.white,
+          fontSize: fontSize ?? 11.sp,
         ),
-        style: ElevatedButton.styleFrom(
-          primary: btnColor ?? kPrimaryColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(radius ?? 10.r),
-          ),
+      ),
+      style: ElevatedButton.styleFrom(
+        elevation: 10,
+        padding: padding,
+        primary: btnColor ?? kPrimaryColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(radius ?? 10.r),
         ),
       ),
     );
