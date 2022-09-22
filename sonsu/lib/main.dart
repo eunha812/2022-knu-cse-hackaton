@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
                 page: () => const HomePage(),
                 transition: Transition.fadeIn),
             GetPage(name: '/splash', page: () => const SplashPage()),
+
             // GetPage(name: '/SignIn', page: () => const SignInPage()),
           ],
         );
