@@ -16,10 +16,11 @@ class CircleButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
+        elevation: 10,
         shape: const CircleBorder(),
         padding: const EdgeInsets.all(55),
-        primary: Colors.blue, // <-- Button color
-        onPrimary: Colors.red, // <-- Splash color
+        primary: kMainRed, // <-- Button color
+        // onPrimary: Colors.red, // <-- Splash color
       ),
       child: icon,
     );
