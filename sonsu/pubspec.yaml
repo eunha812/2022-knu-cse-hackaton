@@ -35,6 +35,8 @@ dependencies:
   get: 
   flutter_screenutil: 
   persistent_bottom_nav_bar: ^5.0.2
+  carousel_slider: ^4.0.0
+  circular_chart_flutter: ^0.0.2
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
+import 'package:sonsu/pages/helper/helper_main/alarm_list.dart';
 import 'package:sonsu/pages/home_page.dart';
 import 'package:sonsu/pages/splash_page.dart';
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
                 page: () => const HomePage(),
                 transition: Transition.fadeIn),
             GetPage(name: '/splash', page: () => const SplashPage()),
-
+            GetPage(name: '/alarm', page: () => AlarmList()),
             // GetPage(name: '/SignIn', page: () => const SignInPage()),
           ],
         );

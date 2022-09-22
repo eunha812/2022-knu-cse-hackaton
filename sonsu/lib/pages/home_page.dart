@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:sonsu/pages/helper/Volunteer/Volunteer.dart';
-import 'package:sonsu/pages/helper/helper_main/HelperMain.dart';
-import 'package:sonsu/pages/helper/helper_mypage/HelperMypage.dart';
-import 'package:sonsu/pages/helper/little_help/LittleHelp.dart';
+import 'package:sonsu/pages/helper/volunteer/volunteer.dart';
+import 'package:sonsu/pages/helper/helper_main/helper_main.dart';
+import 'package:sonsu/pages/helper/helper_mypage/helper_mypage.dart';
+import 'package:sonsu/pages/helper/little_help/little_help.dart';
 import 'package:sonsu/utils/constants.dart';
 
 class HomePage extends StatefulWidget {

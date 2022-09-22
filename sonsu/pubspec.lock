@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  carousel_slider:
+    dependency: "direct main"
+    description:
+      name: carousel_slider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.1"
   characters:
     dependency: transitive
     description:
@@ -22,6 +29,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
+  circular_chart_flutter:
+    dependency: "direct main"
+    description:
+      name: circular_chart_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   clock:
     dependency: transitive
     description:
