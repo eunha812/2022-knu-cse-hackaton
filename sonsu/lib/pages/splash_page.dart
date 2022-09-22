@@ -13,7 +13,7 @@ class SplashPage extends StatelessWidget {
         top: false,
         bottom: false,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(90, 0, 90, 0),
+          padding: const EdgeInsets.fromLTRB(100, 0, 100, 0),
           child: Center(child: Image.asset('assets/images/logo.png')),
         ),
       ),

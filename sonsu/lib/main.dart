@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
 import 'package:sonsu/pages/home_page.dart';
 import 'package:sonsu/pages/splash_page.dart';
 
@@ -10,6 +12,33 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: const Size(360, 640),
+      builder: (BuildContext context, Widget? child) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Son-Su',
+          initialRoute: '/',
+          getPages: [
+            GetPage(name: '/', page: () => const SplashtoHome()),
+            GetPage(
+                name: '/home',
+                page: () => const HomePage(),
+                transition: Transition.fadeIn),
+            GetPage(name: '/splash', page: () => const SplashPage()),
+            // GetPage(name: '/SignIn', page: () => const SignInPage()),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class SplashtoHome extends StatelessWidget {
+  const SplashtoHome({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -27,13 +56,11 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Son-Su',
-            theme: ThemeData(
-            ),
-            home: HomePage(),
+            theme: ThemeData(),
+            home: const HomePage(),
           );
         }
       },
     );
-
   }
 }
