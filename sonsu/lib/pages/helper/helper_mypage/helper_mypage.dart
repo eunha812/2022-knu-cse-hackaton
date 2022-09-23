@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sonsu/utils/constants.dart';
 
 class HelperMypage extends StatefulWidget {
-  HelperMypage({Key? key}) : super(key: key);
+  const HelperMypage({Key? key}) : super(key: key);
 
   @override
   State<HelperMypage> createState() => _HelperMypageState();
