@@ -63,7 +63,7 @@ class _VolunteerContentState extends State<VolunteerContent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: EdgeInsets.fromLTRB(20, 0, 20, 15),
       child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
