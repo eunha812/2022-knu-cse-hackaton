@@ -8,7 +8,7 @@ class MatchCompletePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppbar('상세정보', kPrimaryColor),
+      appBar: buildAppbar('상세정보', kPrimaryColor, true),
       body: Column(
         children: [
           CircleAvatar(
