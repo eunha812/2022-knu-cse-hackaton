@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 PreferredSizeWidget buildAppbar(String label, Color? color, bool lead) {
   if (lead == true) {

@@ -5,7 +5,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:circular_chart_flutter/circular_chart_flutter.dart';
 
 class HelperMain extends StatefulWidget {
-  HelperMain({Key? key}) : super(key: key);
+  const HelperMain({Key? key}) : super(key: key);
 
   @override
   State<HelperMain> createState() => _HelperMainState();
@@ -155,7 +155,7 @@ class _HelperMainState extends State<HelperMain> {
                               ),
                               Text(
                                 sosoList[index]["time"]!,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 8,
                                     color: Color.fromARGB(50, 0, 0, 0)),
                               )

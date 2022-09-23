@@ -20,9 +20,9 @@ class _HomePageState extends State<HomePage> {
   List<Widget> _showScreen() {
     return [
       Volunteer(),
-      LittleHelp(),
-      HelperMain(),
-      HelperMypage(),
+      const LittleHelp(),
+      const HelperMain(),
+      const HelperMypage(),
     ];
   }
 
