@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Son-Su',
-          initialRoute: '/needer-home',
+          initialRoute: '/',
           getPages: [
             GetPage(name: '/', page: () => const SplashtoHome()),
             GetPage(
