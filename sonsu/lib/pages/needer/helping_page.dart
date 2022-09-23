@@ -8,7 +8,7 @@ class HelpingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppbar('손수 중', kPrimaryColor),
+      appBar: buildAppbar('손수 중', kPrimaryColor, true),
       body: SafeArea(
           child: Column(
         children: [

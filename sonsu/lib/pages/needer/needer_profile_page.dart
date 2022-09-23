@@ -8,7 +8,7 @@ class NeederProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppbar('프로필', kPrimaryColor),
+      appBar: buildAppbar('프로필', kPrimaryColor, true),
       body: SafeArea(
           child: Column(
         children: [
