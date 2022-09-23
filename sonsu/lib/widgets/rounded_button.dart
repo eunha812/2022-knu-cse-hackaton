@@ -11,6 +11,7 @@ class RoundedButton extends StatelessWidget {
   final Color? textColor;
   final Color? btnColor;
   final double? fontSize;
+  final double? elevation;
 
   const RoundedButton({
     required this.onPressed,
@@ -21,27 +22,27 @@ class RoundedButton extends StatelessWidget {
     this.textColor,
     this.btnColor,
     this.fontSize,
+    this.elevation,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
+    return ElevatedButton(
       onPressed: onPressed,
-      icon: icon ?? Container(),
-      label: Text(
+      style: ElevatedButton.styleFrom(
+        elevation: elevation,
+        backgroundColor: btnColor ?? kPrimaryColor,
+        padding: padding,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(radius ?? 10.r),
+        ),
+      ),
+      child: Text(
         label ?? '',
         style: TextStyle(
           color: textColor ?? Colors.white,
           fontSize: fontSize ?? 11.sp,
-        ),
-      ),
-      style: ElevatedButton.styleFrom(
-        elevation: 10,
-        padding: padding,
-        primary: btnColor ?? kPrimaryColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(radius ?? 10.r),
         ),
       ),
     );

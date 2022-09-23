@@ -72,7 +72,7 @@ class NotificationController extends GetxController {
       const InitializationSettings(
           android: AndroidInitializationSettings('@mipmap/ic_launcher')),
       onDidReceiveNotificationResponse: (details) {
-        Get.toNamed('');
+        // Get.toNamed('');
       },
       onDidReceiveBackgroundNotificationResponse: (details) {},
     );
