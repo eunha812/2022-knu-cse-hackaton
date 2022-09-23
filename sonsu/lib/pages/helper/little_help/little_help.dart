@@ -10,7 +10,7 @@ class LittleHelp extends StatefulWidget {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: buildAppbar("소소한 도움", kMainYellow),
+        appBar: buildAppbar("소소한 도움", kMainYellow, false),
         body: Container(
           child: Column(children: <Widget>[
             Row(children: <Widget>[
