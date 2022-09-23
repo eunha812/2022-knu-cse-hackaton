@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
+import 'package:sonsu/controllers/notification_controller.dart';
+import 'package:sonsu/pages/nedder/helping_page.dart';
+import 'package:sonsu/pages/nedder/match_try_page.dart';
 import 'package:sonsu/pages/helper/helper_main/alarm_list.dart';
-import 'package:sonsu/pages/helpee/helpee_home_page.dart';
-import 'package:sonsu/pages/helpee/match_complete_page.dart';
+import 'package:sonsu/pages/nedder/needer_home_page.dart';
+import 'package:sonsu/pages/nedder/match_complete_page.dart';
 import 'package:sonsu/pages/home_page.dart';
+import 'package:sonsu/pages/nedder/needer_profile_page.dart';
 import 'package:sonsu/pages/splash_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -23,7 +34,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Son-Su',
-          initialRoute: '/',
+          initialRoute: '/needer-home',
           getPages: [
             GetPage(name: '/', page: () => const SplashtoHome()),
             GetPage(
@@ -31,12 +42,17 @@ class MyApp extends StatelessWidget {
                 page: () => const HomePage(),
                 transition: Transition.fadeIn),
             GetPage(name: '/splash', page: () => const SplashPage()),
-            GetPage(name: '/alarm', page: () => AlarmList()),
-            GetPage(name: '/helpee-home', page: () => const HelpeeHomePage()),
+            GetPage(name: '/alarm', page: () => const AlarmList()),
+            GetPage(name: '/needer-home', page: () => const NeederHomePage()),
+            GetPage(name: '/match-try', page: () => const MatchTryPage()),
             GetPage(
                 name: '/match-complete', page: () => const MatchCompletePage()),
-            // GetPage(name: '/SignIn', page: () => const SignInPage()),
+            GetPage(name: '/helping', page: () => const HelpingPage()),
+            GetPage(
+                name: '/needer-profile', page: () => const NeederProfilePage()),
           ],
+          initialBinding: BindingsBuilder.put(() => NotificationController(),
+              permanent: true),
           theme: ThemeData(
             fontFamily: 'Noto_Sans_KR',
           ),

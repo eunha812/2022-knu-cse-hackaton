@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sonsu/utils/constants.dart';
 
 class LittleHelp extends StatefulWidget {
-  LittleHelp({Key? key}) : super(key: key);
+  const LittleHelp({Key? key}) : super(key: key);
 
   @override
   State<LittleHelp> createState() => _LittleHelpState();

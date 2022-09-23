@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sonsu/utils/constants.dart';
 
 class Volunteer extends StatefulWidget {
-  Volunteer({Key? key}) : super(key: key);
+  const Volunteer({Key? key}) : super(key: key);
 
   @override
   State<Volunteer> createState() => _VolunteerState();
