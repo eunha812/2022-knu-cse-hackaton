@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sonsu/utils/constants.dart';
 
 class AlarmList extends StatefulWidget {
-  AlarmList({Key? key}) : super(key: key);
+  const AlarmList({Key? key}) : super(key: key);
 
   @override
   State<AlarmList> createState() => _AlarmListState();

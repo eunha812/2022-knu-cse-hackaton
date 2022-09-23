@@ -4,7 +4,7 @@ import 'package:sonsu/utils/constants.dart';
 import 'package:sonsu/widgets/app_bar.dart';
 
 class Volunteer extends StatefulWidget {
-  Volunteer({Key? key}) : super(key: key);
+  const Volunteer({Key? key}) : super(key: key);
 
   @override
   State<Volunteer> createState() => _VolunteerState();

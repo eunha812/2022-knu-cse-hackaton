@@ -4,7 +4,7 @@ import 'package:sonsu/widgets/app_bar.dart';
 import 'package:sonsu/widgets/rounded_button.dart';
 
 class LittleHelp extends StatefulWidget {
-  LittleHelp({Key? key}) : super(key: key);
+  const LittleHelp({Key? key}) : super(key: key);
 
   @override
   State<LittleHelp> createState() => _LittleHelpState();
