@@ -38,7 +38,6 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: buildAppbar('상세정보', kPrimaryColor, true),
       body: SafeArea(
@@ -83,6 +82,7 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
                         style: TextStyle(
                           fontSize: 20,
                           color: kMainRed,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ],
@@ -107,6 +107,7 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
                   fontSize: 35,
                   padding: EdgeInsets.all(50.w),
                   radius: 50,
+                  fontWeight: FontWeight.w700,
                 ),
               ],
             ),
