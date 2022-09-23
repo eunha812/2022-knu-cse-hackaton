@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sonsu/pages/nedder/match_try_page.dart';
+import 'package:sonsu/pages/needer/match_try_page.dart';
 import 'package:sonsu/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sonsu/widgets/circle_button.dart';
