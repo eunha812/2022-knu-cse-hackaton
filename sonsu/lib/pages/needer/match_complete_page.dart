@@ -38,6 +38,7 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: buildAppbar('상세정보', kPrimaryColor, true),
       body: SafeArea(
@@ -57,27 +58,27 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
                   SizedBox(width: 30.w),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
-                        '홍길동',
+                        '${Get.arguments['name']}',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 25.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        '남성',
+                        '${Get.arguments['age']}',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                         ),
                       ),
                       Text(
-                        '22세',
+                        '${Get.arguments['gender']}',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                         ),
                       ),
-                      Text(
+                      const Text(
                         '신고횟수 0회',
                         style: TextStyle(
                           fontSize: 20,
