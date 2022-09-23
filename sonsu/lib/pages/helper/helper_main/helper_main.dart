@@ -105,7 +105,7 @@ class _HelperMainState extends State<HelperMain> {
                 ],
                 chartType: CircularChartType.Radial,
                 percentageValues: true,
-                holeLabel: '평균도움\n10회',
+                holeLabel: '평균도움\n15회',
                 labelStyle: new TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
