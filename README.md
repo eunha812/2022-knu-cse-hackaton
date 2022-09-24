@@ -5,10 +5,11 @@
 
 ### 👩🏻‍🎓팀명
 : 졸업언제하조🎓
-- [팀장, Front] 김은하
-- [Front] 이세은
-- [Back] 이승신
-- [Front] 정명주
+: 졸업언제하조🎓
+| 김은하 | 이세은 | 이승신 | 정명주 |
+| ------ | ------ |----|-----|
+| <img src="https://avatars.githubusercontent.com/u/62578738?s=120&v=4" alt="seungsin" width="100" height="100"> | <img src="https://avatars.githubusercontent.com/u/62578738?s=120&v=4" alt="seungsin" width="100" height="100"> |<img src="https://avatars.githubusercontent.com/u/62578738?s=120&v=4" alt="seungsin" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/62578738?s=120&v=4" alt="seungsin" width="100" height="100">|
+| 팀장, Front | Frontend |Backend|Frontend|
  
 ### 💡 제출 세션 및 주제
 - [자유] 
