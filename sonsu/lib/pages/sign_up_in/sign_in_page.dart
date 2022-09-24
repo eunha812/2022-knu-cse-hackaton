@@ -31,8 +31,8 @@ class _SignInPageState extends State<SignInPage> {
                   width: 100.w,
                 ),
               ),
-              _inputField("아이디", false),
-              _inputField("비밀번호", true),
+              _inputField("아이디", false, 15.sp),
+              _inputField("비밀번호", true, 15.sp),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: Row(
@@ -88,7 +88,7 @@ class _SignInPageState extends State<SignInPage> {
                 fontSize: 18.sp,
                 padding: EdgeInsets.fromLTRB(100.w, 10.h, 100.w, 10.h),
                 radius: 30.r,
-              )
+              ),
             ],
           ),
         ),
@@ -97,7 +97,7 @@ class _SignInPageState extends State<SignInPage> {
   }
 }
 
-Widget _inputField(String hintText, bool isPassword) {
+Widget _inputField(String hintText, bool isPassword, double? fontSize) {
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.all(
@@ -116,7 +116,7 @@ Widget _inputField(String hintText, bool isPassword) {
     child: TextField(
       obscureText: isPassword,
       style: TextStyle(
-        fontSize: 15.sp,
+        fontSize: fontSize,
         fontWeight: FontWeight.w400,
         color: const Color(0xff000912),
       ),
