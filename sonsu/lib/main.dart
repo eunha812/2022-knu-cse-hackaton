@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Son-Su',
-          initialRoute: '/sign-up-option',
+          initialRoute: '/',
           getPages: [
             GetPage(name: '/', page: () => const HomePage()),
             GetPage(

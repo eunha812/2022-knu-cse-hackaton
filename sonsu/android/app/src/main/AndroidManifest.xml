@@ -4,6 +4,16 @@
         android:label="sonsu"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+  
+ 
+       <!-- TODO: Add your API key here -->
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyDbEbUX2UTrTn3_KY3PA-6YRbSb4BmonYc"/> // android API Key
+ 
+       
+   
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -37,5 +47,6 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+            
     </application>
 </manifest>
