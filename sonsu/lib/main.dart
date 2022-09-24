@@ -45,9 +45,9 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Son-Su',
-          initialRoute: '/',
+          initialRoute: '/home',
           getPages: [
-            GetPage(name: '/', page: () => const HomePage()),
+            GetPage(name: '/', page: () => const SignInPage()),
             GetPage(
                 name: '/home',
                 page: () => const HomePage(),
@@ -62,7 +62,6 @@ class MyApp extends StatelessWidget {
             GetPage(
                 name: '/needer-profile', page: () => const NeederProfilePage()),
             GetPage(name: '/alarm_list', page: () => const AlarmList()),
-            GetPage(name: '/sign-in', page: () => const SignInPage()),
             GetPage(
                 name: '/helper-sign-up', page: () => const HelperSignUpPage()),
             GetPage(name: '/needer-sign-up', page: () => NeederSignUpPage()),
