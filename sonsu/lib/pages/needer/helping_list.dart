@@ -1,9 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:sonsu/utils/constants.dart';
 import 'package:sonsu/widgets/app_bar.dart';
-import 'package:sonsu/widgets/rounded_button.dart';
 
 class HelpingList extends StatefulWidget {
   const HelpingList({Key? key}) : super(key: key);
@@ -79,7 +76,7 @@ class _HelpingListState extends State<HelpingList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: buildAppbar("도움 요청 내역", kPrimaryColor, false),
+        appBar: buildAppbar("도움 받은 기록", kPrimaryColor, true),
         body: ListView.separated(
           padding: EdgeInsets.all(0),
           itemCount: 10,

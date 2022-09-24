@@ -39,9 +39,9 @@ class _NeederHomePageState extends State<NeederHomePage> {
                     iconSize: 35.w,
                     onPressed: () {
                       Get.toNamed('/needer-profile', arguments: {
-                        "name": "김철수",
-                        "age": "22세",
-                        "gender": "남자"
+                        "name": "이순재",
+                        "age": "76세",
+                        "gender": "남성"
                       });
                     },
                     icon: const Icon(
