@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sonsu/models/user.dart';
+import 'package:sonsu/services/api.dart';
 import 'package:sonsu/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,8 +13,15 @@ class MatchTryPage extends StatefulWidget {
 }
 
 class _MatchTryPageState extends State<MatchTryPage> {
+  var user = User(
+    name: "김철수",
+    location: "[37.504198, 127.047967]",
+    time: DateTime.now().toString(),
+  );
+
   @override
   void initState() {
+    sendNeed(user.name!, user.location!, user.time!, context);
     super.initState();
   }
 
@@ -63,30 +72,9 @@ class _MatchTryPageState extends State<MatchTryPage> {
                 semanticsLabel: 'Circular progress indicator',
               ),
             ),
-            FloatingActionButton(onPressed: () => getData(context)),
           ],
         ),
       ),
     );
-  }
-}
-
-void getData(BuildContext context) {
-  bool success = true; //디비에서 데이터 요청
-  if (success) {
-    Get.toNamed('match-complete',
-        arguments: {"name": "김철수", "age": "22세", "gender": "남자"});
-  } else {
-    const snackBar = SnackBar(
-      content: Text(
-        '주변에 도움을 줄 사람이 없습니다. 다시 시도해보세요.',
-        style: TextStyle(color: Colors.black),
-      ),
-      duration: Duration(seconds: 3),
-      backgroundColor: Colors.white70,
-    );
-
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    Get.back();
   }
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/instance_manager.dart';
@@ -17,11 +18,16 @@ import 'package:sonsu/pages/sign_up_in/sign_up_option_page.dart';
 import 'package:sonsu/pages/sign_up_in/sign_up_page.dart';
 import 'firebase_options.dart';
 
+Future<void> _fcmBackgroundHandler(RemoteMessage message) async {
+  print("Handling a background message");
+}
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  FirebaseMessaging.onBackgroundMessage(_fcmBackgroundHandler);
   runApp(const MyApp());
 }
 
