@@ -1,6 +1,7 @@
-# 2022-knu-cse-hackaton
+<div align="center"># 2022 대구를 빛내는 SW #</div>
+<img src="https://user-images.githubusercontent.com/62578738/192111974-6ad690e1-4446-4502-bc3b-c91bcf170683.png"/>
 
-# 손수(手)
+## 손수(手)
 손 수 만드는 따뜻한 사회
 
 ### 👩🏻‍🎓팀명
