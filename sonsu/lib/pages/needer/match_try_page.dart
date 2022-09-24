@@ -96,9 +96,6 @@ void getResult(ApiResponse apiResponse, User user, BuildContext context) async {
     );
     //helper 정보 노티 받고 화면 전환
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print('Got a message whilst in the foreground!');
-      print('Message data: ${message.data}');
-
       if (message.notification == null) {
         helper.name = message.data['helperName'];
         helper.age = message.data['age'];
