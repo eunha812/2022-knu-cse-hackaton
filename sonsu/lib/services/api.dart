@@ -64,7 +64,7 @@ Future<ApiResponse> sendNeed(
 }
 
 Future<ApiResponse> sendHelpAccepted(
-    String name, String whohelp, String time) async {
+    String name, String whohelp) async {
   ApiResponse apiResponse = ApiResponse();
 
   try {
@@ -73,7 +73,6 @@ Future<ApiResponse> sendHelpAccepted(
       body: {
         'name': name,
         'whohelp': whohelp,
-        'time': time,
       },
     );
 
