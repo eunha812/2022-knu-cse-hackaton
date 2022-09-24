@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sonsu/pages/needer/match_try_page.dart';
 import 'package:sonsu/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sonsu/widgets/circle_button.dart';
@@ -12,6 +11,7 @@ class NeederHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool? success;
+    
     List<String> keywordList = [
       '짐운반🧳',
       '길안내💁🏻‍♀️',
