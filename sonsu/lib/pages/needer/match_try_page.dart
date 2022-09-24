@@ -72,10 +72,10 @@ class _MatchTryPageState extends State<MatchTryPage> {
 }
 
 void getData(BuildContext context) {
-  bool success = false; //디비에서 데이터 요청
+  bool success = true; //디비에서 데이터 요청
   if (success) {
     Get.toNamed('match-complete',
-        arguments: {"name": "김철수", "나이": "22", "성별": "남자"});
+        arguments: {"name": "김철수", "age": "22세", "gender": "남자"});
   } else {
     const snackBar = SnackBar(
       content: Text(

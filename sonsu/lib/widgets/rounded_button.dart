@@ -12,6 +12,7 @@ class RoundedButton extends StatelessWidget {
   final Color? btnColor;
   final double? fontSize;
   final double? elevation;
+  final FontWeight? fontWeight;
 
   const RoundedButton({
     required this.onPressed,
@@ -23,6 +24,7 @@ class RoundedButton extends StatelessWidget {
     this.btnColor,
     this.fontSize,
     this.elevation,
+    this.fontWeight,
     Key? key,
   }) : super(key: key);
 
@@ -41,9 +43,9 @@ class RoundedButton extends StatelessWidget {
       child: Text(
         label ?? '',
         style: TextStyle(
-          color: textColor ?? Colors.white,
-          fontSize: fontSize ?? 11.sp,
-        ),
+            color: textColor ?? Colors.white,
+            fontSize: fontSize ?? 11.sp,
+            fontWeight: fontWeight),
       ),
     );
   }

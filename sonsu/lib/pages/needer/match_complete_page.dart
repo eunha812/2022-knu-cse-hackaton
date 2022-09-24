@@ -57,31 +57,32 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
                   SizedBox(width: 30.w),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
-                        '홍길동',
+                        '${Get.arguments['name']}',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 25.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        '남성',
+                        '${Get.arguments['age']}',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                         ),
                       ),
                       Text(
-                        '22세',
+                        '${Get.arguments['gender']}',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                         ),
                       ),
-                      Text(
+                      const Text(
                         '신고횟수 0회',
                         style: TextStyle(
                           fontSize: 20,
                           color: kMainRed,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ],
@@ -106,6 +107,7 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
                   fontSize: 35,
                   padding: EdgeInsets.all(50.w),
                   radius: 50,
+                  fontWeight: FontWeight.w700,
                 ),
               ],
             ),
