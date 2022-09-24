@@ -10,12 +10,14 @@ import 'package:sonsu/pages/needer/match_try_page.dart';
 import 'package:sonsu/pages/helper/helper_main/alarm_list.dart';
 import 'package:sonsu/pages/needer/needer_home_page.dart';
 import 'package:sonsu/pages/needer/match_complete_page.dart';
+import 'package:sonsu/pages/needer/helping_list.dart';
 import 'package:sonsu/pages/home_page.dart';
 import 'package:sonsu/pages/needer/needer_profile_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:sonsu/pages/sign_up_in/needer_sign_up_page.dart';
 import 'package:sonsu/pages/sign_up_in/sign_in_page.dart';
 import 'package:sonsu/pages/sign_up_in/sign_up_option_page.dart';
-import 'package:sonsu/pages/sign_up_in/sign_up_page.dart';
+import 'package:sonsu/pages/sign_up_in/helper_sign_up_page.dart';
 import 'firebase_options.dart';
 
 Future<void> _fcmBackgroundHandler(RemoteMessage message) async {
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Son-Su',
-          initialRoute: '/',
+          initialRoute: '/helping_list',
           getPages: [
             GetPage(name: '/', page: () => const HomePage()),
             GetPage(
@@ -61,10 +63,13 @@ class MyApp extends StatelessWidget {
                 name: '/needer-profile', page: () => const NeederProfilePage()),
             GetPage(name: '/alarm_list', page: () => const AlarmList()),
             GetPage(name: '/sign-in', page: () => const SignInPage()),
-            GetPage(name: '/sign-up', page: () => const SignUpPage()),
+            GetPage(
+                name: '/helper-sign-up', page: () => const HelperSignUpPage()),
+            GetPage(name: '/needer-sign-up', page: () => NeederSignUpPage()),
             GetPage(
                 name: '/sign-up-option', page: () => const SignUpOptionPage()),
             GetPage(name: '/needer_detail', page: () => const NeederDetail()),
+            GetPage(name: '/helping_list', page: () => const HelpingList()),
           ],
           initialBinding: BindingsBuilder.put(() => NotificationController(),
               permanent: true),
