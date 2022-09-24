@@ -29,7 +29,7 @@ class HelpingPage extends StatelessWidget {
               RoundedButton(
                 onPressed: () {
                   // 잘끝났다는 알림이 뜨면서,, 히스토리로 이동,,,?
-                  Get.toNamed('/helping-history');
+                  Get.toNamed('/needer-home');
                 },
                 label: '도움 완료',
                 fontSize: 35,
