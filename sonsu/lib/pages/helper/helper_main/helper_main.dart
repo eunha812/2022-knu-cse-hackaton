@@ -5,7 +5,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:circular_chart_flutter/circular_chart_flutter.dart';
 
 class HelperMain extends StatefulWidget {
-  HelperMain({Key? key}) : super(key: key);
+  const HelperMain({Key? key}) : super(key: key);
 
   @override
   State<HelperMain> createState() => _HelperMainState();
@@ -70,77 +70,81 @@ class _HelperMainState extends State<HelperMain> {
             ),
           ),
           SizedBox(
-            height: Get.height * 0.05,
+            height: Get.height * 0.04,
           ),
           //레벨 및 도움 횟수
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                height: 100,
-                child: Image.asset(
-                  'assets/images/kind_level.png',
-                  fit: BoxFit.fitHeight,
+          Container(
+            //width: double.infinity,
+            margin: EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '정보석님,',
+                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                 ),
-              ),
-              AnimatedCircularChart(
-                key: _chartKey,
-                size: Size(100, 100),
-                initialChartData: <CircularStackEntry>[
-                  new CircularStackEntry(
-                    <CircularSegmentEntry>[
-                      new CircularSegmentEntry(
-                        63,
-                        kMainYellow,
-                        rankKey: 'completed',
-                      ),
-                      new CircularSegmentEntry(
-                        37,
-                        kMainGrey,
-                        rankKey: 'remaining',
-                      ),
-                    ],
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  '오늘도 손수 따뜻한 세상을 만들러 오셨군요!',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: Get.height * 0.03,
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Image.asset(
+                    'assets/images/my_record_bar.png',
+                    fit: BoxFit.fitWidth,
                   ),
-                ],
-                chartType: CircularChartType.Radial,
-                percentageValues: true,
-                holeLabel: '평균도움\n10회',
-                labelStyle: new TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 13.0,
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           SizedBox(
             height: Get.height * 0.04,
           ),
           //소소한 도움 상위 게시글
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 40),
-            height: 100,
+            margin: EdgeInsets.symmetric(horizontal: 30),
+            height: 110,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: Color.fromARGB(10, 0, 0, 0),
+                color: Color.fromARGB(15, 0, 0, 0),
                 width: 2,
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    //sosoList[2]["title"]!,
-                    '소소한 도움',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '소소한 도움',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
+                      ),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () {},
+                        child: Text(
+                          "more",
+                          style: const TextStyle(
+                              fontSize: 11, color: Color.fromARGB(90, 0, 0, 0)),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 60,
                     child: ListView.builder(
                         padding: EdgeInsets.all(0),
                         itemCount: 3,
@@ -151,14 +155,14 @@ class _HelperMainState extends State<HelperMain> {
                             children: [
                               Text(
                                 sosoList[index]["title"]!,
-                                style: TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 12),
                               ),
                               Text(
                                 sosoList[index]["time"]!,
-                                style: TextStyle(
-                                    fontSize: 8,
-                                    color: Color.fromARGB(50, 0, 0, 0)),
-                              )
+                                style: const TextStyle(
+                                    fontSize: 10,
+                                    color: Color.fromARGB(70, 0, 0, 0)),
+                              ),
                             ],
                           );
                         }),
@@ -168,7 +172,7 @@ class _HelperMainState extends State<HelperMain> {
             ),
           ),
           SizedBox(
-            height: Get.height * 0.04,
+            height: Get.height * 0.05,
           ),
           //카드뉴스 슬라이드
           CarouselSlider.builder(
@@ -176,18 +180,19 @@ class _HelperMainState extends State<HelperMain> {
             itemBuilder: ((context, index, realIndex) {
               final urlImage = Images[index];
               return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 1),
-                child: Image.asset(
-                  urlImage,
-                  fit: BoxFit.fitHeight,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    urlImage,
+                  ),
                 ),
               );
             }),
             options: CarouselOptions(
-                height: Get.height * 0.33,
+                height: Get.height * 0.31,
                 aspectRatio: 2.0,
                 enlargeCenterPage: true,
-                viewportFraction: 0.5,
+                viewportFraction: 0.4,
                 autoPlay: true),
           ),
         ],

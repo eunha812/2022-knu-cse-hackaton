@@ -1,25 +1,32 @@
 package Hackathon.demo.helpNotification.service;
 
+
 import Hackathon.demo.user.domain.entity.Helper;
 import Hackathon.demo.user.domain.entity.Needer;
 import Hackathon.demo.user.service.UserService;
+
 import com.google.firebase.messaging.FirebaseMessagingException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+
 import java.security.KeyStore;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import java.util.concurrent.ExecutionException;
+
 
 @Service
 @AllArgsConstructor
 public class NotificationService {
     private FirebaseCloudMessageService firebaseMessage;
+
     private UserService userService;
 
     // 도움요청 전체 로직
@@ -39,9 +46,11 @@ public class NotificationService {
             firebaseMessage.makeNotiDataMessage(nearHelperTockens.get(i), neederInfo);
         }
 
+
         resBody.put("message", "success to request");
         return ResponseEntity.ok().body(resBody);
     }
+
 
     // 도움요청자와의 거리 계산 -> 10분 거리 내에 있는 클라이언트 토큰 리스트 반환
     public List<String> calculDist(List<Helper> userLocations, int helperLocation){
@@ -144,4 +153,5 @@ public class NotificationService {
     private static double rad2deg(double rad) {
         return (rad * 180 / Math.PI);
     }
+
 }
