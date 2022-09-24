@@ -11,7 +11,6 @@ import 'package:sonsu/pages/needer/needer_home_page.dart';
 import 'package:sonsu/pages/needer/match_complete_page.dart';
 import 'package:sonsu/pages/home_page.dart';
 import 'package:sonsu/pages/needer/needer_profile_page.dart';
-import 'package:sonsu/pages/helper/helper_main/alarm_list.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
