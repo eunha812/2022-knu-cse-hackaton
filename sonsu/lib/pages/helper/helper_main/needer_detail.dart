@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sonsu/utils/constants.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../widgets/app_bar.dart';
+import '../../../widgets/circle_button.dart';
 
 class NeederDetail extends StatefulWidget {
   const NeederDetail({Key? key}) : super(key: key);
@@ -47,11 +49,13 @@ class _NeederDetailState extends State<NeederDetail> {
         body: (Container(
             child: Column(children: [
           Container(
-            margin: EdgeInsets.fromLTRB(30, 20, 10, 20),
+            padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+            margin: EdgeInsets.fromLTRB(30, 0, 0, 20),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
+                  margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
                   height: 130,
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
@@ -61,44 +65,65 @@ class _NeederDetailState extends State<NeederDetail> {
                       )),
                 ),
                 SizedBox(
-                  width: 40,
+                  width: 30,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '이순재',
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      '남성',
-                      style: TextStyle(
-                        fontSize: 15,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '이순재',
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      '76세',
-                      style: TextStyle(
-                        fontSize: 15,
+                      SizedBox(
+                        height: 5,
                       ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      '거동 불편',
-                      style: TextStyle(
-                        fontSize: 15,
+                      Text(
+                        '나이: 76세',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 1,
+                      ),
+                      Text(
+                        '성별: 남성',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 1,
+                      ),
+                      Text(
+                        '특이사항: 거동 불편',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                      Text(
+                        ' ',
+                        style: TextStyle(
+                          fontSize: 8,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 1,
+                      ),
+                      Text(
+                        '                                      🚨신고하기',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: kMainRed,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -119,9 +144,9 @@ class _NeederDetailState extends State<NeederDetail> {
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: 55,
                   child: ListView.builder(
-                      padding: EdgeInsets.all(2),
+                      padding: EdgeInsets.all(5),
                       itemCount: 3,
                       itemBuilder: (BuildContext context, int index) {
                         return Row(
@@ -130,12 +155,12 @@ class _NeederDetailState extends State<NeederDetail> {
                           children: [
                             Text(
                               needList[index]["title"]!,
-                              style: TextStyle(fontSize: 11),
+                              style: TextStyle(fontSize: 12),
                             ),
                             Text(
                               needList[index]["time"]!,
                               style: const TextStyle(
-                                  fontSize: 10,
+                                  fontSize: 12,
                                   color: Color.fromARGB(70, 0, 0, 0)),
                             )
                           ],
@@ -153,7 +178,7 @@ class _NeederDetailState extends State<NeederDetail> {
                   Text(
                     '',
                     style: TextStyle(
-                      fontSize: 17,
+                      fontSize: 8,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -164,8 +189,8 @@ class _NeederDetailState extends State<NeederDetail> {
                   //   fit: BoxFit.fitWidth,
                   // ),
                   SizedBox(
-                    height: 300,
-                    width: 400,
+                    height: 310,
+                    width: 410,
                     child: GoogleMap(
                       mapType: MapType.normal,
                       markers: Set.from(_markers),
