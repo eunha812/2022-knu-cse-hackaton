@@ -71,10 +71,6 @@ class NotificationController extends GetxController {
     await flutterLocalNotificationsPlugin.initialize(
       const InitializationSettings(
           android: AndroidInitializationSettings('@mipmap/ic_launcher')),
-      onDidReceiveNotificationResponse: (details) {
-        // Get.toNamed('');
-      },
-      onDidReceiveBackgroundNotificationResponse: (details) {},
     );
 
     /// * onMessage 설정 - 이것만 설정해줘도 알림을 받아낼 수 있다. *

@@ -119,12 +119,12 @@ class _HelperMainState extends State<HelperMain> {
           ),
           //소소한 도움 상위 게시글
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 40),
+            margin: EdgeInsets.symmetric(horizontal: 30),
             height: 100,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: Color.fromARGB(10, 0, 0, 0),
+                color: Color.fromARGB(15, 0, 0, 0),
                 width: 2,
               ),
             ),
@@ -140,7 +140,7 @@ class _HelperMainState extends State<HelperMain> {
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 45,
                     child: ListView.builder(
                         padding: EdgeInsets.all(0),
                         itemCount: 3,
@@ -151,13 +151,13 @@ class _HelperMainState extends State<HelperMain> {
                             children: [
                               Text(
                                 sosoList[index]["title"]!,
-                                style: TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 10),
                               ),
                               Text(
                                 sosoList[index]["time"]!,
                                 style: const TextStyle(
-                                    fontSize: 8,
-                                    color: Color.fromARGB(50, 0, 0, 0)),
+                                    fontSize: 9,
+                                    color: Color.fromARGB(70, 0, 0, 0)),
                               )
                             ],
                           );

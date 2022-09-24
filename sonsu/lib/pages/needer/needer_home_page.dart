@@ -1,23 +1,29 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sonsu/pages/needer/match_try_page.dart';
+import 'package:sonsu/models/user.dart';
+import 'package:sonsu/services/api.dart';
 import 'package:sonsu/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sonsu/widgets/circle_button.dart';
 import 'package:sonsu/widgets/rounded_button.dart';
 
-class NeederHomePage extends StatelessWidget {
+class NeederHomePage extends StatefulWidget {
   const NeederHomePage({Key? key}) : super(key: key);
 
   @override
+  State<NeederHomePage> createState() => _NeederHomePageState();
+}
+
+class _NeederHomePageState extends State<NeederHomePage> {
+  @override
   Widget build(BuildContext context) {
-    bool? success;
-    List<String> keywordList = [
-      '짐운반🧳',
-      '길안내💁🏻‍♀️',
-      '키오스크🤖',
-      '신호등🚦',
-      '대중교통🚌'
+    var keywordList = [
+      {'label': '짐운반🧳', 'selected': 'false'},
+      {'label': '길안내💁🏻‍♀️', 'selected': 'false'},
+      {'label': '키오스크🤖', 'selected': 'false'},
+      {'label': '신호등🚦', 'selected': 'false'},
+      {'label': '대중교통🚌', 'selected': 'false'},
     ];
     return Scaffold(
       backgroundColor: kPrimaryColor,
@@ -59,7 +65,7 @@ class NeederHomePage extends StatelessWidget {
             SizedBox(height: 40.h),
             CircleButton(
               //도움 받기
-              onPressed: () {
+              onPressed: () async {
                 Get.toNamed('/match-try');
               },
               icon: Image.asset(
@@ -84,18 +90,28 @@ class NeederHomePage extends StatelessWidget {
       ),
     );
   }
-}
 
-List<Widget> _buildKeyword(List list) {
-  List<Widget> results = [];
-  for (var i = 0; i < list.length; i++) {
-    results.add(RoundedButton(
-      onPressed: () {},
-      label: list[i],
-      btnColor: Colors.white,
-      textColor: Colors.black,
-      radius: 30,
-    ));
+  List<Widget> _buildKeyword(List list) {
+    List<Widget> results = [];
+    setState(() {
+      for (var i = 0; i < list.length; i++) {
+        results.add(RoundedButton(
+          onPressed: () {
+            setState(() {
+              if (list[i]['selected'] == 'false') {
+                list[i]['selected'] = 'true';
+              } else {
+                list[i]['selected'] = 'false';
+              }
+            });
+          },
+          label: list[i]['label'],
+          btnColor: (list[i]['selected'] == 'true') ? kMainGreen : Colors.white,
+          textColor: Colors.black,
+          radius: 30,
+        ));
+      }
+    });
+    return results;
   }
-  return results;
 }
