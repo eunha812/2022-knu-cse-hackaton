@@ -134,10 +134,25 @@ class _HelperMainState extends State<HelperMain> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    //sosoList[2]["title"]!,
-                    '소소한 도움',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '소소한 도움',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold),
+                      ),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () {},
+                        child: Text(
+                          "more",
+                          style: const TextStyle(
+                              fontSize: 10, color: Color.fromARGB(90, 0, 0, 0)),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 45,
@@ -158,7 +173,7 @@ class _HelperMainState extends State<HelperMain> {
                                 style: const TextStyle(
                                     fontSize: 9,
                                     color: Color.fromARGB(70, 0, 0, 0)),
-                              )
+                              ),
                             ],
                           );
                         }),
@@ -168,7 +183,7 @@ class _HelperMainState extends State<HelperMain> {
             ),
           ),
           SizedBox(
-            height: Get.height * 0.04,
+            height: 20,
           ),
           //카드뉴스 슬라이드
           CarouselSlider.builder(
@@ -176,18 +191,18 @@ class _HelperMainState extends State<HelperMain> {
             itemBuilder: ((context, index, realIndex) {
               final urlImage = Images[index];
               return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 1),
+                //margin: const EdgeInsets.symmetric(horizontal: 1),
                 child: Image.asset(
                   urlImage,
-                  fit: BoxFit.fitHeight,
+                  //fit: BoxFit.fitHeight,
                 ),
               );
             }),
             options: CarouselOptions(
-                height: Get.height * 0.33,
+                height: Get.height * 0.36,
                 aspectRatio: 2.0,
                 enlargeCenterPage: true,
-                viewportFraction: 0.5,
+                viewportFraction: 0.45,
                 autoPlay: true),
           ),
         ],
