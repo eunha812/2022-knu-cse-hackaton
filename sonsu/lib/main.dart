@@ -10,6 +10,7 @@ import 'package:sonsu/pages/needer/match_try_page.dart';
 import 'package:sonsu/pages/helper/helper_main/alarm_list.dart';
 import 'package:sonsu/pages/needer/needer_home_page.dart';
 import 'package:sonsu/pages/needer/match_complete_page.dart';
+import 'package:sonsu/pages/needer/helping_list.dart';
 import 'package:sonsu/pages/home_page.dart';
 import 'package:sonsu/pages/needer/needer_profile_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Son-Su',
-          initialRoute: '/',
+          initialRoute: '/helping_list',
           getPages: [
             GetPage(name: '/', page: () => const HomePage()),
             GetPage(
@@ -65,6 +66,7 @@ class MyApp extends StatelessWidget {
             GetPage(
                 name: '/sign-up-option', page: () => const SignUpOptionPage()),
             GetPage(name: '/needer_detail', page: () => const NeederDetail()),
+            GetPage(name: '/helping_list', page: () => const HelpingList()),
           ],
           initialBinding: BindingsBuilder.put(() => NotificationController(),
               permanent: true),
