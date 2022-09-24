@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:sonsu/controllers/notification_controller.dart';
+import 'package:sonsu/pages/helper/helper_main/needer_detail.dart';
 import 'package:sonsu/pages/needer/helping_page.dart';
 import 'package:sonsu/pages/needer/match_try_page.dart';
 import 'package:sonsu/pages/helper/helper_main/alarm_list.dart';
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/sign-up', page: () => const SignUpPage()),
             GetPage(
                 name: '/sign-up-option', page: () => const SignUpOptionPage()),
+            GetPage(name: '/needer_detail', page: () => const NeederDetail()),
           ],
           initialBinding: BindingsBuilder.put(() => NotificationController(),
               permanent: true),

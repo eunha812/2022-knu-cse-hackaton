@@ -30,7 +30,7 @@ class _LittleHelpState extends State<LittleHelp> {
       "title": "감자털이 도와주세요^_ㅠ",
       "name": "감자국",
       "time": "2022.09.24. 22:30",
-      "res": "false"
+      "res": "true"
     },
     {
       "title": "다리 깁스 중인 학생입니다..",
@@ -54,13 +54,13 @@ class _LittleHelpState extends State<LittleHelp> {
       "title": "(급함)컴퓨터 조립 도와주세요..",
       "name": "컴맹",
       "time": "2022.09.23. 23:30",
-      "res": "false"
+      "res": "true"
     },
     {
       "title": "오늘 점심 때 쪽문 맘스터치 가신 분들",
       "name": "싸이버거",
       "time": "2022.09.23. 15:20",
-      "res": "false"
+      "res": "true"
     },
     {
       "title": "혼밥 탈출 도와주실 분 계신가용?",
