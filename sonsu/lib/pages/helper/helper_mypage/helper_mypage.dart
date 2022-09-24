@@ -15,7 +15,7 @@ class _HelperMypageState extends State<HelperMypage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppbar("프로필", kMainYellow, false),
+      appBar: buildAppbar("프로필", Colors.black, Colors.white, false),
       body: HelperMypageContent(),
     );
   }

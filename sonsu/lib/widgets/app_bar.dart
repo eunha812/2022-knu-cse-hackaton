@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
-PreferredSizeWidget buildAppbar(String label, Color? color, bool lead) {
+PreferredSizeWidget buildAppbar(
+    String label, Color? textcolor, Color? color, bool lead) {
   if (lead == true) {
     return AppBar(
       backgroundColor: color,
@@ -15,7 +16,7 @@ PreferredSizeWidget buildAppbar(String label, Color? color, bool lead) {
       title: Text(
         label,
         style: TextStyle(
-          color: Colors.white,
+          color: textcolor,
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
@@ -29,7 +30,7 @@ PreferredSizeWidget buildAppbar(String label, Color? color, bool lead) {
       title: Text(
         label,
         style: TextStyle(
-          color: Colors.white,
+          color: textcolor,
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),

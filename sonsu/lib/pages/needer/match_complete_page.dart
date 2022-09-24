@@ -48,7 +48,7 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppbar('상세정보', kPrimaryColor, true),
+      appBar: buildAppbar('상세정보', Colors.white, kPrimaryColor, true),
       body: SafeArea(
         child: Column(
           children: [

@@ -45,7 +45,7 @@ class _NeederDetailState extends State<NeederDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: buildAppbar("상세정보", kMainYellow, false),
+        appBar: buildAppbar("상세정보", Colors.white, kMainYellow, false),
         body: (Container(
             child: Column(children: [
           Container(

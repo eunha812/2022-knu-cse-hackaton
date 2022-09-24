@@ -76,7 +76,7 @@ class _HelpingListState extends State<HelpingList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: buildAppbar("도움 받은 기록", kPrimaryColor, true),
+        appBar: buildAppbar("도움 받은 기록", Colors.white, kPrimaryColor, true),
         body: ListView.separated(
           padding: EdgeInsets.all(0),
           itemCount: 10,
