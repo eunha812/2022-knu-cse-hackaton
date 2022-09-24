@@ -8,12 +8,14 @@ class CircleButton extends StatelessWidget {
     required this.icon,
     this.elevation,
     this.padding,
+    this.backgroundColor,
   }) : super(key: key);
 
   final Function()? onPressed;
   final Widget? icon;
   final double? elevation;
   final EdgeInsets? padding;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class CircleButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: elevation ?? 10,
-        backgroundColor: kMainRed,
+        backgroundColor: backgroundColor ?? kMainRed,
         shape: const CircleBorder(),
         padding: padding ?? const EdgeInsets.all(55),
       ),
