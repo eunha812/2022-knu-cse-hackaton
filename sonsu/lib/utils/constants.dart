@@ -8,4 +8,5 @@ const kMainGreen = Color(0xff548235);
 const kMainLightYellow = Color(0xffFFF2AC);
 const kMainMiddleYellow = Color(0xffFFEB84);
 const kMainYellow = Color(0xffFFD600);
+const kMainDarkYellow = Color(0xffFFC700);
 const kBlack = Color(0xff000000);

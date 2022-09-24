@@ -48,7 +48,7 @@ class _AlarmListState extends State<AlarmList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: buildAppbar("긴급 요청", kMainYellow, false),
+        appBar: buildAppbar("긴급 요청", Colors.white, kMainYellow, false),
         body: Container(
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

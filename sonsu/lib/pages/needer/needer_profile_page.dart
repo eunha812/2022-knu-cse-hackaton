@@ -22,7 +22,7 @@ class NeederProfilePage extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: buildAppbar('프로필', kPrimaryColor, true),
+      appBar: buildAppbar('프로필', Colors.white, kPrimaryColor, true),
       body: SafeArea(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

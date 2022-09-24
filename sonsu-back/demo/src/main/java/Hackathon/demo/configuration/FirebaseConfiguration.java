@@ -16,6 +16,7 @@ public class FirebaseConfiguration {
         try{
             FileInputStream serviceAccount =
                     new FileInputStream("src/main/resources/serviceAccountKey.json");
+                    //new FileInputStream("/home/ubuntu/project-hack/serviceAccountKey.json");
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .build();

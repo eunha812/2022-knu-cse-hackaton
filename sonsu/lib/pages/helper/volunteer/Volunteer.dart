@@ -14,7 +14,7 @@ class _VolunteerState extends State<Volunteer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppbar('봉사 모집', kMainYellow, false),
+      appBar: buildAppbar('봉사 모집', Colors.black, Colors.white, false),
       body: VolunteerContent(),
       //Expanded(child: VolunteerContent()),
     );
