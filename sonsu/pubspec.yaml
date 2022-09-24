@@ -40,6 +40,7 @@ dependencies:
   firebase_core: 
   firebase_messaging: 
   flutter_local_notifications: 
+  google_maps_flutter: ^2.2.0
 
 dev_dependencies:
   flutter_test:
