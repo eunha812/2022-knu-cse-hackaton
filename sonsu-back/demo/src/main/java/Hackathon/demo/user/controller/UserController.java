@@ -5,6 +5,7 @@ import Hackathon.demo.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,12 +19,15 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/users")
-    public ResponseEntity<Object> getUsers() throws ExecutionException, InterruptedException {
-        List<Users> list = userService.getUsers();
-        return ResponseEntity.ok().body(list);
+//    @GettertMapping("/users")
+//    public ResponseEntity<Object> getUsers() throws ExecutionException, InterruptedException {
+//        List<Users> list = userService.getUsers();
+//        return ResponseEntity.ok().body(list);
+//
+//    }
 
+    @PostMapping("/helper/saveLocation")
+    public ResponseEntity<Object> saveLocation(){
+        return ResponseEntity.ok().body("success");
     }
-
-
 }
