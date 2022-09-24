@@ -12,6 +12,9 @@ import 'package:sonsu/pages/home_page.dart';
 import 'package:sonsu/pages/needer/needer_profile_page.dart';
 import 'package:sonsu/pages/helper/helper_main/alarm_list.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:sonsu/pages/sign_up_in/sign_in_page.dart';
+import 'package:sonsu/pages/sign_up_in/sign_up_option_page.dart';
+import 'package:sonsu/pages/sign_up_in/sign_up_page.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Son-Su',
-          initialRoute: '/needer-home',
+          initialRoute: '/sign-up-option',
           getPages: [
             GetPage(name: '/', page: () => const HomePage()),
             GetPage(
@@ -51,6 +54,10 @@ class MyApp extends StatelessWidget {
             GetPage(
                 name: '/needer-profile', page: () => const NeederProfilePage()),
             GetPage(name: '/alarm_list', page: () => const AlarmList()),
+            GetPage(name: '/sign-in', page: () => const SignInPage()),
+            GetPage(name: '/sign-up', page: () => const SignUpPage()),
+            GetPage(
+                name: '/sign-up-option', page: () => const SignUpOptionPage()),
           ],
           initialBinding: BindingsBuilder.put(() => NotificationController(),
               permanent: true),
