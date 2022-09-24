@@ -37,10 +37,6 @@ dependencies:
   persistent_bottom_nav_bar: ^5.0.2
   carousel_slider: ^4.0.0
   circular_chart_flutter: ^0.0.2
-  firebase_core: 
-  firebase_messaging: 
-  flutter_local_notifications: 
-  google_maps_flutter: ^2.2.0
 
 dev_dependencies:
   flutter_test:
