@@ -31,9 +31,9 @@ class ApiError {
   }
 }
 
-String _baseUrl = "http://192.168.1.9:8080/";
+String _baseUrl = "http://34.249.122.42:8080/";
 Future<ApiResponse> sendNeed(
-    String name, String location, String time, BuildContext context) async {
+    String name, String location, String time) async {
   ApiResponse apiResponse = ApiResponse();
 
   try {
@@ -49,21 +49,9 @@ Future<ApiResponse> sendNeed(
     switch (response.statusCode) {
       case 200: //helper 찾음!
         apiResponse.data = User.fromJson(json.decode(response.body));
-        Get.toNamed('match-complete',
-            arguments: {"name": "김철수", "age": "22세", "gender": "남자"});
         break;
       case 400: //못 찾음!
         apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
-        const snackBar = SnackBar(
-          content: Text(
-            '주변에 도움을 줄 사람이 없습니다. 다시 시도해보세요.',
-            style: TextStyle(color: Colors.black),
-          ),
-          duration: Duration(seconds: 3),
-          backgroundColor: Colors.white70,
-        );
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        Get.back();
         break;
       default:
         apiResponse.apiError = ApiError.fromJson(json.decode(response.body));

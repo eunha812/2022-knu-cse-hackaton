@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sonsu/models/user.dart';
 import 'package:sonsu/utils/constants.dart';
 import 'package:sonsu/widgets/app_bar.dart';
 import 'package:sonsu/widgets/rounded_button.dart';
@@ -17,6 +17,7 @@ class MatchCompletePage extends StatefulWidget {
 class _MatchCompletePageState extends State<MatchCompletePage> {
   late Timer _timer;
   int _timerCount = 60 * 10;
+  User helper = Get.arguments;
 
   @override
   void initState() {
@@ -33,7 +34,15 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
         }
       });
     });
+    //이전 로딩 페이지 스택에서 삭제 -> 넣으니까 오류남 ㅅㅂ
+    // Get.until((route) => Get.currentRoute == '/match-try');
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -52,35 +61,37 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
                     maxRadius: 60,
                     backgroundColor: Colors.transparent,
                     child: ClipOval(
-                        child: Image.asset('assets/images/helper.png')),
+                      child: Image.asset('assets/images/jewelry.png'), //연습용
+                      // child: Image.network(helper.imgUrl!),
+                    ),
                   ),
                   SizedBox(width: 30.w),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '${Get.arguments['name']}',
+                        helper.name!,
                         style: TextStyle(
                           fontSize: 25.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        '${Get.arguments['age']}',
+                        helper.age!,
                         style: TextStyle(
                           fontSize: 16.sp,
                         ),
                       ),
                       Text(
-                        '${Get.arguments['gender']}',
+                        helper.gender!,
                         style: TextStyle(
                           fontSize: 16.sp,
                         ),
                       ),
-                      const Text(
-                        '신고횟수 0회',
+                      Text(
+                        '신고횟수 ${helper.report}회',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 20.sp,
                           color: kMainRed,
                           fontWeight: FontWeight.w700,
                         ),
@@ -102,7 +113,10 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
                 ),
                 SizedBox(height: 10.h),
                 RoundedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _timer.cancel();
+                    Get.toNamed('/helping');
+                  },
                   label: '도움 시작',
                   fontSize: 35,
                   padding: EdgeInsets.all(50.w),
