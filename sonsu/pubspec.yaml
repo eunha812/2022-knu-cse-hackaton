@@ -41,7 +41,8 @@ dependencies:
   firebase_messaging: 
   flutter_local_notifications: 
   google_maps_flutter: ^2.2.0
-  http: 
+  image_picker: ^0.8.5+3
+  path_provider: ^2.0.11
 
 dev_dependencies:
   flutter_test:

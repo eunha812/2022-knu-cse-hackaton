@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sonsu/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sonsu/widgets/rounded_button.dart';
@@ -16,6 +17,7 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
           child: Center(
         child: Padding(
@@ -61,12 +63,19 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ],
                     ),
-                    Text(
-                      '회원가입',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15.sp,
-                          fontWeight: FontWeight.bold),
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () {
+                        Get.toNamed('/sign-up-option');
+                      },
+                      child: Text(
+                        '회원가입',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
