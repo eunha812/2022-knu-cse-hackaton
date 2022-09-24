@@ -11,6 +11,7 @@ import 'package:sonsu/pages/needer/match_complete_page.dart';
 import 'package:sonsu/pages/home_page.dart';
 import 'package:sonsu/pages/needer/needer_profile_page.dart';
 import 'package:sonsu/pages/splash_page.dart';
+import 'package:sonsu/pages/helper/helper_main/alarm_list.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/helping', page: () => const HelpingPage()),
             GetPage(
                 name: '/needer-profile', page: () => const NeederProfilePage()),
+            GetPage(name: '/alarm_list', page: () => const AlarmList()),
           ],
           initialBinding: BindingsBuilder.put(() => NotificationController(),
               permanent: true),

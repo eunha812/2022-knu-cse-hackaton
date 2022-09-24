@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:sonsu/utils/constants.dart';
 import 'package:sonsu/widgets/app_bar.dart';
@@ -26,7 +28,7 @@ class _LittleHelpState extends State<LittleHelp> {
     },
     {"title": "O형이신 분들 꼭 읽어주세요", "name": "익명이", "time": "2022.09.24. 11:46"},
     {
-      "title": "자취방 이사 도와주실 분 구합니다!!(경대 쪽문)",
+      "title": "자취방 이사 도와주실 분 구합니다(경대 쪽문)",
       "name": "컴학멋쟁이",
       "time": "2022.09.24. 08:53"
     },
@@ -48,23 +50,28 @@ class _LittleHelpState extends State<LittleHelp> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: buildAppbar("소소한 도움", kMainYellow, false),
-        body: ListView.builder(
-            padding: EdgeInsets.all(0),
-            itemCount: 10,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                height: 70,
-                padding: EdgeInsets.fromLTRB(35, 3, 10, 3),
-                child: Row(children: [
-                  Flexible(
-                      flex: 4,
+        body: ListView.separated(
+          padding: EdgeInsets.all(0),
+          itemCount: 10,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              height: 70,
+              padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(littleList[index]["title"]!,
-                                style:
-                                    TextStyle(fontSize: 15.0, color: kBlack)),
+                            Text(
+                              littleList[index]["title"]!,
+                              style: TextStyle(
+                                fontSize: 15.0,
+                                color: kBlack,
+                              ),
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,24 +84,27 @@ class _LittleHelpState extends State<LittleHelp> {
                                         fontSize: 11.0, color: Colors.black38))
                               ],
                             )
-                          ])),
-                  Flexible(
-                      flex: 2,
-                      child: Container(
-                          padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-                          margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                          child: RoundedButton(
-                            onPressed: () {},
-                            label: "     도 움     ",
-                            btnColor: Colors.black38,
-                            textColor: Colors.white,
-                            radius: 10,
-                            elevation: 0,
-                            padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                            fontSize: 15,
-                          ))),
-                ]),
-              );
-            }));
+                          ]),
+                    ),
+                    Container(
+                        padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                        margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                        child: RoundedButton(
+                          onPressed: () {},
+                          label: "     도 움     ",
+                          btnColor: Colors.black38,
+                          textColor: Colors.white,
+                          radius: 10,
+                          elevation: 0,
+                          padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                          fontSize: 15,
+                        )),
+                  ]),
+            );
+          },
+          separatorBuilder: (BuildContext ctx, int idx) {
+            return Divider();
+          },
+        ));
   }
 }
