@@ -24,18 +24,18 @@ class _AlarmListState extends State<AlarmList> {
     // {"name": "가나다","title": "62세 / 거동 불편 / 여성", "time": 7 * 60, "isCompleted": false},
     // {"name": "가나다","title": "73세 / 치매 / 남성", "time": 5 * 60, "isCompleted": false},
     // {"name": "가나다","title": "76세 / 허리디스크 / 여성", "time": 3 * 60, "isCompleted": false},
-    {
-      "name": "가나다",
-      "title": "60세 / 언어 장애 / 여성",
-      "time": 2 * 60,
-      "isCompleted": false
-    },
-    {
-      "name": "가나다",
-      "title": "76세 / 거동 불편 / 남성",
-      "time": 1 * 60,
-      "isCompleted": false
-    },
+    // {
+    //   "name": "가나다",
+    //   "title": "60세 / 언어 장애 / 여성",
+    //   "time": 2 * 60,
+    //   "isCompleted": false
+    // },
+    // {
+    //   "name": "가나다",
+    //   "title": "76세 / 거동 불편 / 남성",
+    //   "time": 1 * 60,
+    //   "isCompleted": false
+    // },
   ];
 
   @override
@@ -43,6 +43,14 @@ class _AlarmListState extends State<AlarmList> {
     getResult(emergency_List);
     doTimer(_timer, emergency_List);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    for (var i = 0; i < _timer.length; i++) {
+      _timer[i].cancel();
+    }
+    super.dispose();
   }
 
   @override
@@ -197,7 +205,11 @@ class _AlarmListState extends State<AlarmList> {
         needer.age = message.data['age'];
         needer.gender = message.data['gender'];
         // needer.time = message.data['reqTime'];
+        if (!mounted) {
+          return;
+        }
         setState(() {
+          //내림차순
           list.insert(0, {
             "name": needer.name,
             "title":
@@ -205,6 +217,13 @@ class _AlarmListState extends State<AlarmList> {
             "time": 10 * 60,
             "isCompleted": false,
           });
+          // list.add({
+          //   "name": needer.name,
+          //   "title":
+          //       "${needer.age}세 / ${message.data['detail']} / ${needer.gender}",
+          //   "time": 10 * 60,
+          //   "isCompleted": false,
+          // });
         });
       }
     });
