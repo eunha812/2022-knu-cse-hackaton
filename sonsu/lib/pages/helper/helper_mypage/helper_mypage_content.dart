@@ -186,7 +186,7 @@ void getResult(User user, BuildContext context) async {
         helper.age = message.data['age'];
         helper.gender = message.data['gender'];
         helper.report = message.data['report'];
-        helper.imgUrl = message.data['helperImg'];
+        // helper.imgUrl = message.data['helperImg'];
         Get.toNamed('match-complete', arguments: helper);
       }
     });
