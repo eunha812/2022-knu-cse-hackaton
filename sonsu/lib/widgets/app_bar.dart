@@ -25,6 +25,7 @@ PreferredSizeWidget buildAppbar(
     );
   } else {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: color,
       elevation: 0,
       title: Text(

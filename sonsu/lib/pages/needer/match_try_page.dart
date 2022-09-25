@@ -96,11 +96,11 @@ void getResult(User user, BuildContext context) async {
         helper.gender = message.data['gender'];
         helper.report = message.data['report'];
         //helper 나타남!
-        Get.snackbar(
-          '매칭 결과',
-          '당신을 도와줄 사람이 나타났어요 ~ 🥳',
-          backgroundColor: Colors.white,
-        );
+        // Get.snackbar(
+        //   '매칭 결과',
+        //   '당신을 도와줄 사람이 나타났어요 ~ 🥳',
+        //   backgroundColor: Colors.white,
+        // );
         Get.toNamed('match-complete', arguments: helper);
       }
     });

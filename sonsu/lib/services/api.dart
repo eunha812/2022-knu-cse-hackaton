@@ -68,12 +68,98 @@ Future<ApiResponse> sendHelpAccepted(String name, String whohelp) async {
   try {
     final response = await http.post(
       Uri.parse('${_baseUrl}needhelp/give'),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      // headers: {
+      //   'Content-Type': 'application/json',
+      // },
       body: {
         'helperName': name,
         'neederName': whohelp,
+      },
+    );
+
+    switch (response.statusCode) {
+      case 200:
+        apiResponse.data = User.fromJson(json.decode(response.body));
+        break;
+      case 400:
+        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
+        break;
+      default:
+        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
+        break;
+    }
+  } on SocketException {
+    apiResponse.apiError = ApiError(error: "Server error. Please retry");
+  }
+  return apiResponse;
+}
+
+Future<ApiResponse> getNeedList(List list) async {
+  ApiResponse apiResponse = ApiResponse();
+
+  try {
+    final response = await http.post(
+      Uri.parse('${_baseUrl}getInfo/getNeedList'),
+      // headers: { 'Context-type' : 'application/json', 'uft-8'},
+    );
+
+    switch (response.statusCode) {
+      case 200:
+        apiResponse.data = User.fromJson(json.decode(response.body));
+        break;
+      case 400:
+        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
+        break;
+      default:
+        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
+        break;
+    }
+  } on SocketException {
+    apiResponse.apiError = ApiError(error: "Server error. Please retry");
+  }
+  return apiResponse;
+}
+
+Future<ApiResponse> sendArrive(
+    String neederName, String helperName, String time) async {
+  ApiResponse apiResponse = ApiResponse();
+
+  try {
+    final response = await http.post(
+      Uri.parse('${_baseUrl}needhelp/arrive'),
+      body: {
+        'neederName': neederName,
+        'helperName': helperName,
+        'reqTime': time,
+      },
+    );
+
+    switch (response.statusCode) {
+      case 200:
+        apiResponse.data = User.fromJson(json.decode(response.body));
+        break;
+      case 400:
+        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
+        break;
+      default:
+        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
+        break;
+    }
+  } on SocketException {
+    apiResponse.apiError = ApiError(error: "Server error. Please retry");
+  }
+  return apiResponse;
+}
+
+Future<ApiResponse> sendFinish(String neederName, String helperName) async {
+  ApiResponse apiResponse = ApiResponse();
+
+  try {
+    final response = await http.post(
+      Uri.parse('${_baseUrl}needhelp/finish'),
+      body: {
+        'neederName': neederName,
+        'helperName': helperName,
       },
     );
 

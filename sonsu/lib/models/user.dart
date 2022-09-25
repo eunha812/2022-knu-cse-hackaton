@@ -64,3 +64,30 @@ class User {
     debugPrint("report: $report\n");
   }
 }
+
+class Need {
+  Need({
+    this.id,
+    this.neederName,
+    this.detail,
+    this.age,
+    this.gender,
+    this.time,
+  });
+
+  String? id;
+  String? neederName;
+  String? age;
+  String? detail;
+  String? gender;
+  String? time;
+
+  factory Need.fromJson(Map<String, dynamic> json) => Need(
+        id: json["id"],
+        neederName: json["neederName"],
+        age: json["age"],
+        detail: json["detail"],
+        gender: json["gender"],
+        time: json["time"],
+      );
+}
