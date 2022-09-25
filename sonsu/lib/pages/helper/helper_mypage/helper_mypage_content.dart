@@ -1,7 +1,11 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sonsu/utils/constants.dart';
+
+import '../../../models/user.dart';
+import '../../../services/api.dart';
 
 class HelperMypageContent extends StatelessWidget {
   const HelperMypageContent({Key? key}) : super(key: key);
@@ -32,8 +36,10 @@ class HelperMypageContent extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
+
                       '${Get.arguments['helperName']}',
                       // '정보석',
+
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                     ),
@@ -115,7 +121,11 @@ class HelperMypageContent extends StatelessWidget {
                   ],
                 ),
                 Text(
+
                   '총 ' + '${Get.arguments['count']}' + '회',
+
+                  '총 ${Get.arguments['report']}회',
+
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -161,5 +171,42 @@ class HelperMypageContent extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+void getResult(User user, BuildContext context) async {
+  var helper = User();
+  ApiResponse apiResponse =
+      await sendNeed(user.name!, user.location!, user.time!);
+  if (apiResponse.apiError == null) {
+    //helper 나타남!
+    Get.snackbar(
+      '매칭 결과',
+      '당신을 도와줄 사람이 나타났어요 ~ 🥳',
+      backgroundColor: Colors.white,
+    );
+    //helper 정보 노티 받고 화면 전환
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      if (message.notification == null) {
+        helper.name = message.data['helperName'];
+        helper.age = message.data['age'];
+        helper.gender = message.data['gender'];
+        helper.report = message.data['report'];
+        helper.imgUrl = message.data['helperImg'];
+        Get.toNamed('match-complete', arguments: helper);
+      }
+    });
+  } else {
+    const snackBar = SnackBar(
+      content: Text(
+        '주변에 도움을 줄 사람이 없습니다🥹 다시 시도해보세요!',
+        style: TextStyle(color: Colors.black),
+      ),
+      duration: Duration(seconds: 3),
+      backgroundColor: Colors.white,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    // Get.snackbar('매칭 결과', '주변에 도움을 줄 사람이 없습니다. 다시 시도해보세요!');
+    Get.back();
   }
 }
