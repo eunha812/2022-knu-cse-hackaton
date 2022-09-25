@@ -2,8 +2,8 @@ package Hackathon.demo.user.dao;
 
 
 import Hackathon.demo.user.domain.entity.Helper;
+import Hackathon.demo.user.domain.entity.ListData;
 import Hackathon.demo.user.domain.entity.Needer;
-import Hackathon.demo.user.domain.entity.Users;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 
@@ -74,5 +74,25 @@ public class UserDao {
         return apiFuture.get().getUpdateTime().toString();
     }
 
+<<<<<<< HEAD
+    public String insertList(ListData neederData) throws Exception{
+        Firestore firestore = FirestoreClient.getFirestore();
+        ApiFuture<com.google.cloud.firestore.WriteResult> apiFuture =
+                firestore.collection("neederList").document(neederData.getId()).set(neederData);
+        return apiFuture.get().getUpdateTime().toString();
+    }
 
+    public List<ListData> getNeederList() throws ExecutionException, InterruptedException {
+        List<ListData> list = new ArrayList<>();
+        Firestore db = FirestoreClient.getFirestore();
+        ApiFuture<QuerySnapshot> future = db.collection("neederList").get();
+        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+        for (QueryDocumentSnapshot document : documents) {
+            list.add(document.toObject(ListData.class));
+        }
+        return list;
+    }
+=======
+
+>>>>>>> 855e0536fbed794a85606ec72ac44f1de035817c
 }
