@@ -42,8 +42,8 @@ class NeederReview extends StatelessWidget {
                 ),
                 SizedBox(height: 20.h),
                 Text(
-                  // '${Get.arguments['name']}',
-                  "이순재",
+                  '${Get.arguments['name']}',
+                  // "이순재",
                   style: TextStyle(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.bold,
@@ -55,8 +55,8 @@ class NeederReview extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      // '${Get.arguments['age']}',
-                      "12세",
+                      '${Get.arguments['age']}',
+                      // "12세",
                       style: TextStyle(
                         fontSize: 13.sp,
                         fontWeight: FontWeight.normal,
@@ -70,8 +70,8 @@ class NeederReview extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      // '${Get.arguments['gender']}',
-                      "남성",
+                      '${Get.arguments['gender']}',
+                      // "남성",
                       style: TextStyle(
                         fontSize: 13.sp,
                         fontWeight: FontWeight.normal,
