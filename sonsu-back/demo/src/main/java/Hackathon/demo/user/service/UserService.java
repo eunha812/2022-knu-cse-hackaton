@@ -1,9 +1,15 @@
 package Hackathon.demo.user.service;
 
 import Hackathon.demo.user.dao.UserDao;
+
 import Hackathon.demo.user.domain.entity.Helper;
 import Hackathon.demo.user.domain.entity.ListData;
 import Hackathon.demo.user.domain.entity.Needer;
+<<<<<<< HEAD
+=======
+
+import Hackathon.demo.user.domain.entity.Users;
+>>>>>>> 855e0536fbed794a85606ec72ac44f1de035817c
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +23,7 @@ import java.util.concurrent.ExecutionException;
 public class UserService {
 
     private final UserDao userDao;
+
 
     public List<Helper> getHelpers() throws ExecutionException, InterruptedException {
         return userDao.getHelpers("helper");
@@ -34,6 +41,7 @@ public class UserService {
 
         helper.setHelpCount(String.valueOf(helpcount));
         return userDao.updateHelper(helper);
+
     }
 
     public String addList(Needer needer) throws Exception {

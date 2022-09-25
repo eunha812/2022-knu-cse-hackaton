@@ -37,4 +37,5 @@ out/
 .vscode/
 
 ### service key ###
-./src/main/resources/firebase/help-hands-453ca-firebase-adminsdk-338cf-b51b111520.json
+/src/main/resources/serviceAccountKey.json
+

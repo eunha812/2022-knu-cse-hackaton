@@ -6,21 +6,26 @@ class CircleButton extends StatelessWidget {
     Key? key,
     required this.onPressed,
     required this.icon,
+    this.elevation,
+    this.padding,
+    this.backgroundColor,
   }) : super(key: key);
 
   final Function()? onPressed;
   final Widget? icon;
+  final double? elevation;
+  final EdgeInsets? padding;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        elevation: 10,
+        elevation: elevation ?? 10,
+        backgroundColor: backgroundColor ?? kMainRed,
         shape: const CircleBorder(),
-        padding: const EdgeInsets.all(55),
-        primary: kMainRed, // <-- Button color
-        // onPrimary: Colors.red, // <-- Splash color
+        padding: padding ?? const EdgeInsets.all(55),
       ),
       child: icon,
     );

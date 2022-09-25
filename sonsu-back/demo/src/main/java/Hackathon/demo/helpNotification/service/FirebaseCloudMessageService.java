@@ -4,16 +4,25 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.common.net.HttpHeaders;
+
 import com.google.firebase.messaging.*;
+
+import com.google.firebase.messaging.BatchResponse;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingException;
+import com.google.firebase.messaging.MulticastMessage;
+
 import lombok.RequiredArgsConstructor;
 import okhttp3.*;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
+
 
 @Component
 @RequiredArgsConstructor
@@ -39,6 +48,7 @@ public class FirebaseCloudMessageService {
         System.out.println("결과:"+response.body().string());
     }
 
+
     private String makeMessage(String targetToken, String title, String body) throws JsonProcessingException {
         FcmMessage fcmMessage = FcmMessage.builder()
                 .message(FcmMessage.Message.builder()
@@ -56,6 +66,7 @@ public class FirebaseCloudMessageService {
 
         return objectMapper.writeValueAsString(fcmMessage);
     }
+
 
     public void makeDataMessage(String targetToken, String title, String body, Map<String, String> data) throws FirebaseMessagingException {
         // See documentation on defining a message payload.
@@ -100,6 +111,7 @@ public class FirebaseCloudMessageService {
         System.out.println("Successfully sent message: " + response);
     }
 
+
     private String getAccessToken() throws IOException {
         String firebaseConfigPath = "serviceAccountKey.json";
 
@@ -110,4 +122,5 @@ public class FirebaseCloudMessageService {
         googleCredentials.refreshIfExpired();
         return googleCredentials.getAccessToken().getTokenValue();
     }
+
 }

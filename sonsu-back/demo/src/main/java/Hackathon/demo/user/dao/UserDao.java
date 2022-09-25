@@ -1,10 +1,12 @@
 package Hackathon.demo.user.dao;
 
+
 import Hackathon.demo.user.domain.entity.Helper;
 import Hackathon.demo.user.domain.entity.ListData;
 import Hackathon.demo.user.domain.entity.Needer;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
+
 import com.google.firebase.cloud.FirestoreClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -17,16 +19,20 @@ import java.util.concurrent.ExecutionException;
 @Slf4j
 public class UserDao {
 
+
     public List<Helper> getHelpers(String collection_name) throws ExecutionException, InterruptedException {
         List<Helper> list = new ArrayList<>();
+
         Firestore db = FirestoreClient.getFirestore();
         ApiFuture<QuerySnapshot> future = db.collection(collection_name).get();
         List<QueryDocumentSnapshot> documents = future.get().getDocuments();
         for (QueryDocumentSnapshot document : documents) {
             list.add(document.toObject(Helper.class));
+
         }
         return list;
     }
+
 
     public Helper getHelperDetail(String id, String collection_name) throws Exception {
         Firestore firestore = FirestoreClient.getFirestore();
@@ -68,6 +74,7 @@ public class UserDao {
         return apiFuture.get().getUpdateTime().toString();
     }
 
+<<<<<<< HEAD
     public String insertList(ListData neederData) throws Exception{
         Firestore firestore = FirestoreClient.getFirestore();
         ApiFuture<com.google.cloud.firestore.WriteResult> apiFuture =
@@ -85,4 +92,7 @@ public class UserDao {
         }
         return list;
     }
+=======
+
+>>>>>>> 855e0536fbed794a85606ec72ac44f1de035817c
 }

@@ -4,7 +4,7 @@ import 'package:sonsu/utils/constants.dart';
 import 'package:sonsu/widgets/app_bar.dart';
 
 class Volunteer extends StatefulWidget {
-  Volunteer({Key? key}) : super(key: key);
+  const Volunteer({Key? key}) : super(key: key);
 
   @override
   State<Volunteer> createState() => _VolunteerState();
@@ -14,7 +14,7 @@ class _VolunteerState extends State<Volunteer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppbar('봉사 모집', kMainYellow, false),
+      appBar: buildAppbar('봉사 모집', Colors.black, Colors.white, false),
       body: VolunteerContent(),
       //Expanded(child: VolunteerContent()),
     );
