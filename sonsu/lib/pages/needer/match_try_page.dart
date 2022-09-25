@@ -15,7 +15,6 @@ class MatchTryPage extends StatefulWidget {
 }
 
 class _MatchTryPageState extends State<MatchTryPage> {
-  ApiResponse apiResponse = ApiResponse();
   var user = User(
     //needer
     name: "김철수",
@@ -25,7 +24,7 @@ class _MatchTryPageState extends State<MatchTryPage> {
   @override
   void initState() {
     Future.delayed(Duration.zero, () async {
-      getResult(apiResponse, user, context);
+      getResult(user, context);
     });
     super.initState();
   }
@@ -84,9 +83,9 @@ class _MatchTryPageState extends State<MatchTryPage> {
   }
 }
 
-void getResult(ApiResponse apiResponse, User user, BuildContext context) async {
+void getResult(User user, BuildContext context) async {
   var helper = User();
-  apiResponse = await sendNeed(user.name!, user.location!, user.time!);
+  ApiResponse apiResponse = await sendNeed(user.name!, user.location!, user.time!);
   if (apiResponse.apiError == null) {
     //helper 나타남!
     Get.snackbar(
@@ -96,9 +95,6 @@ void getResult(ApiResponse apiResponse, User user, BuildContext context) async {
     );
     //helper 정보 노티 받고 화면 전환
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print('Got a message whilst in the foreground!');
-      print('Message data: ${message.data}');
-
       if (message.notification == null) {
         helper.name = message.data['helperName'];
         helper.age = message.data['age'];

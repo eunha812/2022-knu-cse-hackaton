@@ -63,70 +63,16 @@ Future<ApiResponse> sendNeed(
   return apiResponse;
 }
 
-Future<ApiResponse> signIn(String name, String password) async {
+Future<ApiResponse> sendHelpAccepted(
+    String name, String whohelp) async {
   ApiResponse apiResponse = ApiResponse();
 
   try {
     final response = await http.post(
-      Uri.parse('${_baseUrl}user/login'),
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: {
-        'username': name,
-        'password': password,
-      },
-    );
-
-    switch (response.statusCode) {
-      case 200:
-        apiResponse.data = User.fromJson(json.decode(response.body));
-        break;
-      case 401:
-        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
-        break;
-      default:
-        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
-        break;
-    }
-  } on SocketException {
-    apiResponse.apiError = ApiError(error: "Server error. Please retry");
-  }
-  return apiResponse;
-}
-
-Future<ApiResponse> getUserDetails(String name) async {
-  ApiResponse apiResponse = ApiResponse();
-  try {
-    final response = await http.get(Uri.parse('${_baseUrl}user/$name'));
-
-    switch (response.statusCode) {
-      case 200:
-        apiResponse.data = User.fromJson(json.decode(response.body));
-        break;
-      case 401:
-        debugPrint((apiResponse.apiError as ApiError).error);
-        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
-        break;
-      default:
-        debugPrint((apiResponse.apiError as ApiError).error);
-        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
-        break;
-    }
-  } on SocketException {
-    apiResponse.apiError = ApiError(error: "Server error. Please retry");
-  }
-  return apiResponse;
-}
-
-Future<ApiResponse> checkname(String name) async {
-  ApiResponse apiResponse = ApiResponse();
-
-  try {
-    final response = await http.post(
-      Uri.parse('${_baseUrl}user/join/name-check'),
+      Uri.parse('${_baseUrl}needhelp/give'),
       body: {
         'name': name,
+        'whohelp': whohelp,
       },
     );
 
@@ -134,35 +80,7 @@ Future<ApiResponse> checkname(String name) async {
       case 200:
         apiResponse.data = User.fromJson(json.decode(response.body));
         break;
-      case 401:
-        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
-        break;
-      default:
-        apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
-        break;
-    }
-  } on SocketException {
-    apiResponse.apiError = ApiError(error: "Server error. Please retry");
-  }
-  return apiResponse;
-}
-
-Future<ApiResponse> checkNickname(String nickname) async {
-  ApiResponse apiResponse = ApiResponse();
-
-  try {
-    final response = await http.post(
-      Uri.parse('${_baseUrl}user/join/nickname-check'),
-      body: {
-        'user_name': nickname,
-      },
-    );
-
-    switch (response.statusCode) {
-      case 200:
-        apiResponse.data = User.fromJson(json.decode(response.body));
-        break;
-      case 401:
+      case 400:
         apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
         break;
       default:
