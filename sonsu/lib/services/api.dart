@@ -40,7 +40,7 @@ Future<ApiResponse> sendNeed(
     final response = await http.post(
       Uri.parse('${_baseUrl}needhelp/need'),
       body: {
-        'name': name,
+        'neederName': name,
         'location': location,
         'reqTime': time,
       },
@@ -71,8 +71,8 @@ Future<ApiResponse> sendHelpAccepted(
     final response = await http.post(
       Uri.parse('${_baseUrl}needhelp/give'),
       body: {
-        'name': name,
-        'whohelp': whohelp,
+        'helperName': name,
+        'neederName': whohelp,
       },
     );
 
