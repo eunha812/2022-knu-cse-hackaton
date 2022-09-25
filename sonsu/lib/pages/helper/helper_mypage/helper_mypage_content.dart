@@ -36,8 +36,10 @@ class HelperMypageContent extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      // '${Get.arguments['name']}',
-                      '정보석',
+
+                      '${Get.arguments['helperName']}',
+                      // '정보석',
+
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                     ),
@@ -119,7 +121,11 @@ class HelperMypageContent extends StatelessWidget {
                   ],
                 ),
                 Text(
+
+                  '총 ' + '${Get.arguments['count']}' + '회',
+
                   '총 ${Get.arguments['report']}회',
+
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
               ],

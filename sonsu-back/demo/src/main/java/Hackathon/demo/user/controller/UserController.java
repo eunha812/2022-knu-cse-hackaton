@@ -1,6 +1,6 @@
 package Hackathon.demo.user.controller;
 
-import Hackathon.demo.user.domain.entity.Users;
+import Hackathon.demo.user.domain.entity.ListData;
 import Hackathon.demo.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,6 @@ import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/exam/svc/v1")
 public class UserController {
 
     private final UserService userService;
@@ -28,6 +27,14 @@ public class UserController {
 //        return ResponseEntity.ok().body(list);
 //
 //    }
+
+    @GetMapping("/getInfo/getNeedList") ResponseEntity<Object> getList() throws ExecutionException, InterruptedException {
+        return ResponseEntity.ok().body(userService.getList());
+    }
+
+    @PostMapping("/getInfo/getHelperInfo") ResponseEntity<Object> getHelper() throws Exception {
+        return ResponseEntity.ok().body(userService.getHelperDetail("정보석"));
+    }
 
     @PostMapping("/helper/saveLocation")
     public ResponseEntity<Object> saveLocation(){
