@@ -71,20 +71,20 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        helper.name!,
+                        '${helper.name!}',
                         style: TextStyle(
-                          fontSize: 25.sp,
+                          fontSize: 20.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        helper.age!,
+                        '${helper.age!}세',
                         style: TextStyle(
                           fontSize: 16.sp,
                         ),
                       ),
                       Text(
-                        helper.gender!,
+                        '${helper.gender!}',
                         style: TextStyle(
                           fontSize: 16.sp,
                         ),
@@ -92,7 +92,7 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
                       Text(
                         '신고횟수 ${helper.report}회',
                         style: TextStyle(
-                          fontSize: 20.sp,
+                          fontSize: 16.sp,
                           color: kMainRed,
                           fontWeight: FontWeight.w700,
                         ),

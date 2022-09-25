@@ -24,7 +24,12 @@ class _AlarmListState extends State<AlarmList> {
     // {"name": "가나다","title": "45세 / 시각 장애 / 여성", "time": 8 * 60, "isCompleted": false},
     // {"name": "가나다","title": "62세 / 거동 불편 / 여성", "time": 7 * 60, "isCompleted": false},
     // {"name": "가나다","title": "73세 / 치매 / 남성", "time": 5 * 60, "isCompleted": false},
-    // {"name": "가나다","title": "76세 / 허리디스크 / 여성", "time": 3 * 60, "isCompleted": false},
+    // {
+    //   "name": "가나다",
+    //   "title": "76세 / 허리디스크 / 여성",
+    //   "time": 3 * 60,
+    //   "isCompleted": false
+    // },
     // {
     //   "name": "가나다",
     //   "title": "60세 / 언어 장애 / 여성",
@@ -58,7 +63,7 @@ class _AlarmListState extends State<AlarmList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: buildAppbar("긴급 요청", Colors.white, kMainYellow, false),
+        appBar: buildAppbar("긴급 요청", Colors.white, kMainYellow, true),
         body: Container(
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -166,7 +171,8 @@ class _AlarmListState extends State<AlarmList> {
                                           Get.back(); //dismiss dialog
                                           giveHelp(
                                               "정보석",
-                                              emergency_List[index]["name"],
+                                              emergency_List[index]["name"]
+                                                  as String,
                                               context); //이름
                                           Get.toNamed('/needer_detail');
                                         });
