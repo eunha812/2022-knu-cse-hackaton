@@ -49,7 +49,7 @@ Future<ApiResponse> sendNeed(String name, String location, String time) async {
       case 200: //helper 찾음!
         apiResponse.data = User.fromJson(json.decode(response.body));
         break;
-      case 400: //못 찾음!
+      case 406: //못 찾음!
         apiResponse.apiError = ApiError.fromJson(json.decode(response.body));
         break;
       default:

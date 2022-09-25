@@ -14,16 +14,15 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   TextEditingController idController = TextEditingController();
   TextEditingController pwController = TextEditingController();
-  bool autoLogin = true;
+  bool autoLogin = false;
 
   @override
   void initState() {
-    Future.delayed(Duration.zero, () async {
-      if (autoLogin == true) {
-        Get.toNamed('/needer-home');
-        // Get.toNamed('/home');
-      }
-    });
+    // Future.delayed(Duration.zero, () async {
+    //   if (autoLogin == true) {
+    //     Get.toNamed('/needer-home');
+    //   }
+    // });
 
     super.initState();
   }
