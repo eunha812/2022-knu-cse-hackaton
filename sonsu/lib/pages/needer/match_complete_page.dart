@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sonsu/models/user.dart';
+import 'package:sonsu/services/api.dart';
 import 'package:sonsu/utils/constants.dart';
 import 'package:sonsu/widgets/app_bar.dart';
 import 'package:sonsu/widgets/rounded_button.dart';
@@ -115,6 +116,7 @@ class _MatchCompletePageState extends State<MatchCompletePage> {
                 RoundedButton(
                   onPressed: () {
                     _timer.cancel();
+                    sendArrive("이순재", helper.name!, DateTime.now().toString());
                     Get.toNamed('/helping');
                   },
                   label: '도움 시작',

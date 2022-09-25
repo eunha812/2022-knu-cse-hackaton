@@ -19,7 +19,6 @@ class User {
     this.gender,
     this.time,
     this.report,
-    this.imgUrl,
   });
 
   String? id;
@@ -30,7 +29,6 @@ class User {
   String? age;
   String? gender;
   String? report;
-  String? imgUrl;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
         id: json["id"],
@@ -41,7 +39,6 @@ class User {
         age: json["age"],
         gender: json["gender"],
         report: json["report"],
-        imgUrl: json["imgUrl"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -53,7 +50,6 @@ class User {
         "age": age,
         "gender": gender,
         "report": report,
-        "imgUrl": imgUrl,
       };
 
   // print properties for debug
@@ -67,4 +63,31 @@ class User {
     debugPrint("gender: $gender\n");
     debugPrint("report: $report\n");
   }
+}
+
+class Need {
+  Need({
+    this.id,
+    this.neederName,
+    this.detail,
+    this.age,
+    this.gender,
+    this.time,
+  });
+
+  String? id;
+  String? neederName;
+  String? age;
+  String? detail;
+  String? gender;
+  String? time;
+
+  factory Need.fromJson(Map<String, dynamic> json) => Need(
+        id: json["id"],
+        neederName: json["neederName"],
+        age: json["age"],
+        detail: json["detail"],
+        gender: json["gender"],
+        time: json["time"],
+      );
 }

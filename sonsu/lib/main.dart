@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:sonsu/controllers/notification_controller.dart';
+import 'package:sonsu/pages/helper/helper_main/helper_main.dart';
 import 'package:sonsu/pages/helper/helper_main/needer_detail.dart';
+import 'package:sonsu/pages/helper/helper_main/needer_review.dart';
 import 'package:sonsu/pages/needer/helping_page.dart';
 import 'package:sonsu/pages/needer/match_try_page.dart';
 import 'package:sonsu/pages/helper/helper_main/alarm_list.dart';
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Son-Su',
-          initialRoute: '/home',
+          initialRoute: '/sign-up-option',
           getPages: [
             GetPage(name: '/', page: () => const SignInPage()),
             GetPage(
@@ -68,6 +70,7 @@ class MyApp extends StatelessWidget {
             GetPage(
                 name: '/sign-up-option', page: () => const SignUpOptionPage()),
             GetPage(name: '/needer_detail', page: () => const NeederDetail()),
+            GetPage(name: '/needer_review', page: () => const NeederReview()),
             GetPage(name: '/helping_list', page: () => const HelpingList()),
           ],
           initialBinding: BindingsBuilder.put(() => NotificationController(),

@@ -4,32 +4,22 @@ package Hackathon.demo.helpNotification.service;
 import Hackathon.demo.user.domain.entity.Helper;
 import Hackathon.demo.user.domain.entity.Needer;
 import Hackathon.demo.user.service.UserService;
-<<<<<<< HEAD
-=======
 
 import com.google.firebase.messaging.FirebaseMessagingException;
->>>>>>> 855e0536fbed794a85606ec72ac44f1de035817c
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-<<<<<<< HEAD
-=======
 
 import java.security.KeyStore;
 
->>>>>>> 855e0536fbed794a85606ec72ac44f1de035817c
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-<<<<<<< HEAD
-=======
 
 import java.util.concurrent.ExecutionException;
->>>>>>> 855e0536fbed794a85606ec72ac44f1de035817c
-
 
 @Service
 @AllArgsConstructor

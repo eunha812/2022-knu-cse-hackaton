@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:sonsu/utils/constants.dart';
 
 class HelperMypageContent extends StatelessWidget {
@@ -10,7 +12,7 @@ class HelperMypageContent extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.all(30),
+            margin: EdgeInsets.fromLTRB(30, 30, 0, 30),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -30,7 +32,8 @@ class HelperMypageContent extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '정보석',
+                      '${Get.arguments['helperName']}',
+                      // '정보석',
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                     ),
@@ -38,7 +41,8 @@ class HelperMypageContent extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      '남성',
+                      '${Get.arguments['gender']}',
+                      // '남성',
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -47,7 +51,8 @@ class HelperMypageContent extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      '38세',
+                      '${Get.arguments['age']}',
+                      // '38세',
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -65,6 +70,20 @@ class HelperMypageContent extends StatelessWidget {
                     ),
                   ],
                 ),
+                InkWell(
+                  splashColor: Colors.transparent,
+                  child: Container(
+                    height: 30,
+                    margin: EdgeInsets.fromLTRB(70, 0, 0, 100),
+                    child: Image.asset(
+                      'assets/images/review.png',
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                  onTap: () {
+                    Get.toNamed('/needer_review');
+                  },
+                )
               ],
             ),
           ),
@@ -96,7 +115,7 @@ class HelperMypageContent extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '총 15회',
+                  '총 ' + '${Get.arguments['count']}' + '회',
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
               ],
