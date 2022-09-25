@@ -32,8 +32,7 @@ class ApiError {
 }
 
 String _baseUrl = "http://34.249.122.42:8080/";
-Future<ApiResponse> sendNeed(
-    String name, String location, String time) async {
+Future<ApiResponse> sendNeed(String name, String location, String time) async {
   ApiResponse apiResponse = ApiResponse();
 
   try {
@@ -63,13 +62,15 @@ Future<ApiResponse> sendNeed(
   return apiResponse;
 }
 
-Future<ApiResponse> sendHelpAccepted(
-    String name, String whohelp) async {
+Future<ApiResponse> sendHelpAccepted(String name, String whohelp) async {
   ApiResponse apiResponse = ApiResponse();
 
   try {
     final response = await http.post(
       Uri.parse('${_baseUrl}needhelp/give'),
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: {
         'helperName': name,
         'neederName': whohelp,
