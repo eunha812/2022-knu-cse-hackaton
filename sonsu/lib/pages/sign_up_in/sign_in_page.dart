@@ -12,7 +12,22 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  TextEditingController idController = TextEditingController();
+  TextEditingController pwController = TextEditingController();
   bool autoLogin = true;
+
+  @override
+  void initState() {
+    Future.delayed(Duration.zero, () async {
+      if (autoLogin == true) {
+        Get.toNamed('/needer-home');
+        // Get.toNamed('/home');
+      }
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +46,8 @@ class _SignInPageState extends State<SignInPage> {
                   width: 100.w,
                 ),
               ),
-              _inputField("아이디", false, 15.sp),
-              _inputField("비밀번호", true, 15.sp),
+              _inputField("아이디", false, 15.sp, idController),
+              _inputField("비밀번호", true, 15.sp, pwController),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: Row(
@@ -82,7 +97,20 @@ class _SignInPageState extends State<SignInPage> {
               ),
               SizedBox(height: 20.h),
               RoundedButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (idController.text.isNotEmpty &&
+                      pwController.text.isNotEmpty) {
+                    if (idController.text == "test1" &&
+                        pwController.text == "1234") {
+                      //needer
+                      Get.toNamed('/needer-home');
+                    } else if (idController.text == "test2" &&
+                        pwController.text == "2345") {
+                      //helper
+                      Get.toNamed('/home');
+                    }
+                  }
+                },
                 label: '로그인',
                 btnColor: kMainGreen,
                 fontSize: 18.sp,
@@ -97,7 +125,8 @@ class _SignInPageState extends State<SignInPage> {
   }
 }
 
-Widget _inputField(String hintText, bool isPassword, double? fontSize) {
+Widget _inputField(String hintText, bool isPassword, double? fontSize,
+    TextEditingController controller) {
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.all(
@@ -114,6 +143,7 @@ Widget _inputField(String hintText, bool isPassword, double? fontSize) {
     ),
     margin: EdgeInsets.only(bottom: 20.h),
     child: TextField(
+      controller: controller,
       obscureText: isPassword,
       style: TextStyle(
         fontSize: fontSize,

@@ -23,7 +23,8 @@ class _SignUpOptionPageState extends State<SignUpOptionPage> {
             children: [
               RoundedButton(
                 onPressed: () {
-                  Get.toNamed('/helper-sign-up');
+                  Get.toNamed('/home');
+                  // Get.toNamed('/helper-sign-up');
                 },
                 label: '도움\n주기',
                 btnColor: kMainMiddleYellow,
@@ -36,7 +37,8 @@ class _SignUpOptionPageState extends State<SignUpOptionPage> {
               SizedBox(width: 20.w),
               RoundedButton(
                 onPressed: () {
-                  Get.toNamed('/needer-sign-up');
+                  Get.toNamed('/needer-home');
+                  // Get.toNamed('/needer-sign-up');
                 },
                 label: '도움\n받기',
                 btnColor: kMainMiddleYellow,
