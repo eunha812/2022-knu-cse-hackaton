@@ -115,7 +115,7 @@ class HelperMypageContent extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '총 '+${Get.arguments['age']}+'회',
+                  '총 ' + '${Get.arguments['count']}' + '회',
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
               ],
