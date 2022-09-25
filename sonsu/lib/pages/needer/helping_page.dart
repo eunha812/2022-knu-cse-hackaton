@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sonsu/services/api.dart';
 import 'package:sonsu/utils/constants.dart';
 import 'package:sonsu/widgets/app_bar.dart';
 import 'package:sonsu/widgets/circle_button.dart';
@@ -28,7 +29,7 @@ class HelpingPage extends StatelessWidget {
               SizedBox(height: 40.h),
               RoundedButton(
                 onPressed: () {
-                  // 잘끝났다는 알림이 뜨면서,, 히스토리로 이동,,,?
+                  sendFinish("이순재", "정보석");
                   Get.toNamed('/needer-home');
                 },
                 label: '도움 완료',

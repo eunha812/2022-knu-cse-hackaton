@@ -17,6 +17,7 @@ class AlarmList extends StatefulWidget {
 
 class _AlarmListState extends State<AlarmList> {
   List<Timer> _timer = [];
+  // final original_list = [];
   final emergency_List = [
     // {"name": "가나다","title": "76세 / 거동 불편 / 남성", "time": 9 * 60, "isCompleted": false},
     // {"name": "가나다","title": "65세 / 휠체어사용 / 남성", "time": 9 * 60, "isCompleted": false},
@@ -41,6 +42,7 @@ class _AlarmListState extends State<AlarmList> {
   @override
   void initState() {
     getResult(emergency_List);
+    // getList(original_list, emergency_List);
     doTimer(_timer, emergency_List);
     super.initState();
   }
@@ -161,11 +163,12 @@ class _AlarmListState extends State<AlarmList> {
                                             emergency_List[index]
                                                 ["isCompleted"] = true;
                                           });
+                                          Get.back(); //dismiss dialog
                                           giveHelp(
-                                              emergency_List[index]["name"]
-                                                  as String,
                                               "정보석",
+                                              emergency_List[index]["name"],
                                               context); //이름
+                                          Get.toNamed('/needer_detail');
                                         });
                                   },
                           )
@@ -229,6 +232,25 @@ class _AlarmListState extends State<AlarmList> {
     });
   }
 
+  // void getList(List list1, List list2) async {
+  //   ApiResponse apiResponse = await getNeedList();
+  //   if (apiResponse.apiError == null) {
+  //     list1 = apiResponse.data as List;
+  //     debugPrint('이거임' + list1.toString());
+  //     for (var i = 0; i < list1.length; i++) {
+  //       list2.insert(0, {
+  //         "name": list1[i]['neederName'],
+  //         "title":
+  //             "${list1[i]['age']}세 / ${list1[i]['detail']} / ${list1[i]['gender']}",
+  //         "time": 10 * 60,
+  //         "isCompleted": false,
+  //       });
+  //     }
+  //   } else {
+  //     print('리스트를 못가져옴');
+  //   }
+  // }
+
   String toMintues(int seconds) {
     String minutes = (seconds ~/ 60).toString();
     return minutes;
@@ -237,7 +259,6 @@ class _AlarmListState extends State<AlarmList> {
 
 void giveHelp(String who, String whohelp, BuildContext context) async {
   ApiResponse apiResponse = await sendHelpAccepted(who, whohelp);
-  Get.back(); //dismiss dialog
   if (apiResponse.apiError == null) {
     Get.toNamed('/needer_detail');
   } else {
