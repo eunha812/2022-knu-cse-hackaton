@@ -1,6 +1,7 @@
 package Hackathon.demo.helpNotification.controller;
 
 import Hackathon.demo.helpNotification.service.NotificationService;
+import Hackathon.demo.user.domain.entity.UserNames;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -24,16 +25,16 @@ public class NotificationController {
     }
 
     // 긴급 도움 요청이 들어오면 -> response : 근처에 도움 제공자가 있는지 여부
-    @PostMapping("/needhelp/need")
-    public ResponseEntity<Map<String, Object>> requestHelp(Map<String, String> userInfo) throws FirebaseMessagingException, ExecutionException, InterruptedException, IOException {
+        @PostMapping("/needhelp/need")
+    public ResponseEntity<Map<String, Object>> requestHelp(Map<String, String> userInfo) throws Exception {
         return notificationService.getHelp(userInfo); //근처 헬퍼에게 요청을 보냈는지 여부만(구했다는건 이후에 알 수 있음)
     }
 
     // 도움 제공자가 나타나면 -> response : 도움 필요자 정보(프로필, 도움 요청 위치)
-    @PostMapping("/needhelp/give")
-    public ResponseEntity<Map<String, Object>> giveHelp(@RequestBody Map<String, String> userInfo) throws Exception {
-        System.out.println(userInfo.get("neederName"));
-        return notificationService.giveHelpInfo(userInfo.get("name"), userInfo.get("neederName"));
+    @PostMapping(value = "/needhelp/give", consumes = "application/x-www-form-urlencoded")
+    public ResponseEntity<Map<String, Object>> giveHelp(UserNames userNames) throws Exception {
+        System.out.println("needer : " + userNames.getNeederName());
+        return notificationService.giveHelpInfo(userNames.getHelperName(), userNames.getNeederName());
     }
 
     // 도움 제공자가 도착하면
@@ -43,8 +44,8 @@ public class NotificationController {
     }
 
     //도움이 끝나면
-    @PostMapping("/needhelp/finish")
-    public ResponseEntity<Map<String, Object>> finishHelp(@RequestBody Map<String, String> userInfo) throws Exception {
-        return notificationService.finishInfo(userInfo.get("name"), userInfo.get("helperName"));
+    @PostMapping(value="/needhelp/finish", consumes = "application/x-www-form-urlencoded")
+    public ResponseEntity<Map<String, Object>> finishHelp(UserNames userNames) throws Exception {
+        return notificationService.finishInfo(userNames.getNeederName(), userNames.getHelperName());
     }
 }

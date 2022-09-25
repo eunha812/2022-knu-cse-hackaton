@@ -3,18 +3,15 @@ package Hackathon.demo.helpNotification.service;
 import Hackathon.demo.user.domain.entity.Helper;
 import Hackathon.demo.user.domain.entity.Needer;
 import Hackathon.demo.user.service.UserService;
-import com.google.firebase.messaging.FirebaseMessagingException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
 @Service
 @AllArgsConstructor
@@ -23,7 +20,7 @@ public class NotificationService {
     private UserService userService;
 
     // 도움요청 전체 로직
-    public ResponseEntity<Map<String, Object>> getHelp(Map<String, String> neederInfo) throws FirebaseMessagingException, ExecutionException, InterruptedException, IOException {
+    public ResponseEntity<Map<String, Object>> getHelp(Map<String, String> neederInfo) throws Exception {
         Map<String, Object> resBody = new HashMap<>();
 
         // DB에 저장된 헬퍼의 위치 정보를 가지고 비교해야할 것 같음
@@ -36,7 +33,8 @@ public class NotificationService {
         //근처 헬퍼 1인 이상 존재 -> Notification
         //FirebaseCloudMessageService.sendMessageMany(nearHelperTockens);
         for(int i=0;i<nearHelperTockens.size();i++){
-            firebaseMessage.makeNotiDataMessage(nearHelperTockens.get(i), neederInfo);
+            firebaseMessage.makeNotiDataMessage(nearHelperTockens.get(i), neederInfo, "주변에 도움이 필요한 사람이 있어요", "손수 도움을 제공해 주세요!");
+            //userService.addList(userService.getNeederDetail("이순재"));
         }
 
         resBody.put("message", "success to request");
@@ -104,7 +102,7 @@ public class NotificationService {
         //helpcount 1 올려주기
         userService.addHelperCount(helperDetail);
 
-        firebaseMessage.makeNotiDataMessage(helperDetail.getTockenId(), notiData);
+        firebaseMessage.makeNotiDataMessage(helperDetail.getTockenId(), notiData, "손 내밀어 주셔서 감사합니다.", "다음 손길을 위해 후기를 작성해 주세요!");
 
         return ResponseEntity.ok().body(resBody);
     }

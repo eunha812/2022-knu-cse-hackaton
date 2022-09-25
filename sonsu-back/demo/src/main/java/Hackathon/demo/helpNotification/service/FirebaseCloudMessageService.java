@@ -74,20 +74,21 @@ public class FirebaseCloudMessageService {
         String response = FirebaseMessaging.getInstance().send(message);
         // Response is a message ID string.
         System.out.println("Successfully sent message: " + response);
+        System.out.println("check-target"+targetToken);
     }
 
-    public void makeNotiDataMessage(String targetToken, Map<String, String> sendData) throws FirebaseMessagingException {
+    public void makeNotiDataMessage(String targetToken, Map<String, String> sendData, String title, String body) throws FirebaseMessagingException {
         // See documentation on defining a message payload.
         Message message = Message.builder()
                 .putAllData(sendData)
-                .putData("name", "이순재")
+                .putData("neederName", "이순재")
                 .putData("age", "76")
                 .putData("gender", "남성")
                 .putData("detail", "거동불편")
                 .putData("time", String.valueOf(LocalTime.now()))
                 .setNotification(Notification.builder()
-                        .setTitle("주변에 도움이 필요한 사람이 있어요")
-                        .setBody("손수 도움을 내밀어주세요")
+                        .setTitle(title)
+                        .setBody(body)
                         .build())
                 .setToken(targetToken)
                 .build();
