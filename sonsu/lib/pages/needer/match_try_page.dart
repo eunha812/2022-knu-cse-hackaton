@@ -85,14 +85,9 @@ class _MatchTryPageState extends State<MatchTryPage> {
 
 void getResult(User user, BuildContext context) async {
   var helper = User();
-  ApiResponse apiResponse = await sendNeed(user.name!, user.location!, user.time!);
+  ApiResponse apiResponse =
+      await sendNeed(user.name!, user.location!, user.time!);
   if (apiResponse.apiError == null) {
-    //helper 나타남!
-    Get.snackbar(
-      '매칭 결과',
-      '당신을 도와줄 사람이 나타났어요 ~ 🥳',
-      backgroundColor: Colors.white,
-    );
     //helper 정보 노티 받고 화면 전환
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       if (message.notification == null) {
@@ -100,7 +95,12 @@ void getResult(User user, BuildContext context) async {
         helper.age = message.data['age'];
         helper.gender = message.data['gender'];
         helper.report = message.data['report'];
-        helper.imgUrl = message.data['helperImg'];
+        //helper 나타남!
+        Get.snackbar(
+          '매칭 결과',
+          '당신을 도와줄 사람이 나타났어요 ~ 🥳',
+          backgroundColor: Colors.white,
+        );
         Get.toNamed('match-complete', arguments: helper);
       }
     });
