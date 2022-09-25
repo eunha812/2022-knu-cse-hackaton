@@ -45,7 +45,9 @@
   - 유저 데이터 관리 로직 및 도움 요청 및 제공 정보 관리를 위한 로직 수행
   - 도움 요청 및 커뮤니티 관련 데이터 관리 로직 수행
 - 해당 프레임워크로 웹서버 개발 후 AWS Cloud Server(Ubuntu)를 통해 배포
-- 
+
+<img width="507" alt="image" src="https://user-images.githubusercontent.com/62578738/192134876-6cc9e081-e682-4d57-bd61-9c4947176a1d.png">
+
 
 ## 📹 시연 영상
 
