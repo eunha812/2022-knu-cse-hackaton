@@ -174,7 +174,7 @@ Google Map API를 사용하여 도움 요청자의 위치 제공
 
 
 ## 📹 시연 영상
-https://youtu.be/cOe-kx9AQug
+https://www.youtube.com/watch?v=iSzcNfcX3lU
 
 </br>
 </br>
